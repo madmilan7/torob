@@ -1,11 +1,11 @@
 import React from "react";
-import Hello from "./components/Hello";
+import Navbar from "./components/Navbar";
 import "./css/main.css";
 
 const App: React.FC = () => {
   return (
     <div>
-      <Hello />
+      <Navbar />
     </div>
   );
 };

@@ -10,7 +10,7 @@ module.exports = {
     publicPath: "/dist/",
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".jsx", ".json", ".css"],
+    extensions: [".tsx", ".ts", ".js", ".jsx", ".json", ".css", ".svg"],
   },
   module: {
     rules: [
@@ -22,6 +22,14 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
       },
     ],
   },
