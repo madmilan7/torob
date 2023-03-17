@@ -5,6 +5,7 @@ import "./css/main.css";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import AppleProducts from "./components/AppleProducts";
+import Banner2 from "./components/Banner2";
 
 const App: React.FC = () => {  
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
       <Navbar />
       <Banner />
       <AppleProducts  />
+      <Banner2 />
     </div>
   );
 };
