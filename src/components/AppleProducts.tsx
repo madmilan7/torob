@@ -11,7 +11,7 @@ const AppleProducts: React.FC = () => {
         <h2 className="font-bold">گوشی اپل</h2>
         <p className="text-sm text-red-500 cursor-pointer">بیشتر</p>
       </div>
-      <div className="no-scrollbar flex justify-between items-center gap-3 mx-4 pb-10 overflow-x-auto">
+      <div className="no-scrollbar flex justify-between items-center gap-3 mx-4 pb-1 overflow-x-auto">
         {apple.map((product) => (
           <AppleProduct key={product.id} productData={product} />
         ))}
