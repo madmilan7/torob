@@ -22,6 +22,7 @@ const App: React.FC = () => {
       <Banner3 />
       <XiaomiProducts />
       <Banner4 />
+      <AppleProducts />
     </div>
   );
 };

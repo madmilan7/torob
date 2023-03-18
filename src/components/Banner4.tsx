@@ -2,8 +2,8 @@ import React from "react";
 
 // Images
 import homeAppliances from "../assets/images/1-2.jpg";
-import babyAccessories from "../assets/images/13.jpg";
-import clothing from "../assets/images/14.jpg";
+import babyAccessories from "../assets/images/1-3.jpg";
+import clothing from "../assets/images/1-4.jpg";
 
 const Banner4 = () => {
   return (
