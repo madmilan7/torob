@@ -10,6 +10,7 @@ import SamProducts from "./components/SamProducts";
 import Banner3 from "./components/Banner3";
 import XiaomiProducts from "./components/XiaomiProducts";
 import Banner4 from "./components/Banner4";
+import Banner5 from "./components/Banner5";
 
 const App: React.FC = () => {  
   return (
@@ -23,6 +24,8 @@ const App: React.FC = () => {
       <XiaomiProducts />
       <Banner4 />
       <AppleProducts />
+      <Banner5 />
+      <SamProducts />
     </div>
   );
 };
