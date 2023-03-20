@@ -13,6 +13,7 @@ import Banner4 from "./components/Banner4";
 import Banner5 from "./components/Banner5";
 import Banner6 from "./components/Banner6";
 import Banner7 from "./components/Banner7";
+import Footer from "./components/shared/Footer";
 
 const App: React.FC = () => {  
   return (
@@ -31,6 +32,7 @@ const App: React.FC = () => {
       <Banner6 />
       <XiaomiProducts />
       <Banner7 />
+      <Footer />
     </div>
   );
 };
