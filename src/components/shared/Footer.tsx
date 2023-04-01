@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="flex items-center justify-evenly sticky bottom-0 bg-white h-12 ">
-      <div className="flex flex-col items-center justify-center">
+      <Link to="/" className="flex flex-col items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -18,8 +19,8 @@ const Footer = () => {
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <p className="text-sm text-slate-500 scale-75 active:text-red-500">جستجو</p>
-      </div>
-      <div className="flex flex-col items-center justify-center pt-1">
+      </Link>
+      <Link to="/category" className="flex flex-col items-center justify-center pt-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -37,8 +38,8 @@ const Footer = () => {
         </svg>
 
         <p className="text-sm text-slate-500 scale-75 active:text-red-500">دسته بندی</p>
-      </div>
-      <div className="flex flex-col items-center justify-center">
+      </Link>
+      <Link to="/" className="flex flex-col items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -54,8 +55,8 @@ const Footer = () => {
         </svg>
 
         <p className="text-sm text-slate-500 scale-75 active:text-red-500">پیشنهاد ویژه</p>
-      </div>
-      <div className="flex flex-col items-center justify-center">
+      </Link>
+      <Link to="/myTorob" className="flex flex-col items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -70,7 +71,7 @@ const Footer = () => {
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
         <p className="text-sm text-slate-500 scale-75 active:text-red-500">ترب من</p>
-      </div>
+      </Link>
     </div>
   );
 };
