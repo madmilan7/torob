@@ -33,7 +33,7 @@ export const apple: {
   maxPrice: number;
 }[] = [
   {
-    id: 1,
+    id: 0,
     image: {i14pm},
     title:
       "گوشی اپل iPhone 14 Pro Max (Not Active) | حافظه 256 گیگابایت | Apple iPhone 14 Pro Max (Not Active) 256 GB",
@@ -42,7 +42,7 @@ export const apple: {
     maxPrice: 89970000,
   },
   {
-    id: 2,
+    id: 1,
     image: {i13pm},
     title:
       "گوشی اپل iPhone 13 Pro max (Not Active) | حافظه 256 گیگابایت | Apple iPhone 13 Pro max (Not Active) 256 GB",
@@ -51,7 +51,7 @@ export const apple: {
     maxPrice: 130000000,
   },
   {
-    id: 3,
+    id: 2,
     image: {i13},
     title:
       "گوشی اپل iPhone 13 (Not Active) | حافظه 128 گیگابایت | Apple iPhone 13 (Not Active) 128 GB",
@@ -60,7 +60,7 @@ export const apple: {
     maxPrice: 58450000,
   },
   {
-    id: 4,
+    id: 3,
     image: {i14p},
     title:
       "گوشی اپل iPhone 14 Pro (Not Active) | حافظه 256 گیگابایت | Apple iPhone 14 Pro (Not Active) 256 GB",
@@ -69,7 +69,7 @@ export const apple: {
     maxPrice: 80471000,
   },
   {
-    id: 5,
+    id: 4,
     image: {i13p},
     title:
       "گوشی اپل iPhone 13 Pro (Active) | حافظه 256 گیگابایت | Apple iPhone 13 Pro (Active) 256 GB",
@@ -78,7 +78,7 @@ export const apple: {
     maxPrice: 103000000,
   },
   {
-    id: 6,
+    id: 5,
     image: {i14},
     title:
       "گوشی اپل iPhone 14 (Not Active) | حافظه 128 گیگابایت | Apple iPhone 14 (Not Active) 128 GB",
@@ -98,7 +98,7 @@ export const samsung: {
   maxPrice: number;
 }[] = [
   {
-    id: 1,
+    id: 6,
     image: {s23u},
     title:
       "گوشی سامسونگ S23 Ultra 5G | حافظه 256 رم 12 گیگابایت | Samsung Galaxy S23 Ultra 5G 256/12 GB",
@@ -108,7 +108,7 @@ export const samsung: {
     maxPrice: 85000000,
   },
   {
-    id: 2,
+    id: 7,
     image: {s22u},
     title:
       "گوشی سامسونگ S22 Ultra 5G | حافظه 256 رم 12 گیگابایت | Samsung Galaxy S22 Ultra 5G 256/12 GB",
@@ -118,7 +118,7 @@ export const samsung: {
     maxPrice: 60500000,
   },
   {
-    id: 3,
+    id: 8,
     image: {s23u},
     title:
       "گوشی سامسونگ S23 Ultra 5G | حافظه 512 رم 12 گیگابایت | Samsung Galaxy S23 Ultra 5G 512/12 GB",
@@ -128,7 +128,7 @@ export const samsung: {
     maxPrice: 87000000,
   },
   {
-    id: 4,
+    id: 9,
     image: {s22u},
     title:
       "گوشی سامسونگ S22 Ultra 5G | حافظه 512 رم 12 گیگابایت | Samsung Galaxy S22 Ultra 5G 512/12 GB",
@@ -138,7 +138,7 @@ export const samsung: {
     maxPrice: 69200000,
   },
   {
-    id: 5,
+    id: 10,
     image: {s22},
     title:
       "گوشی سامسونگ S22 5G | حافظه 128 رم 8 گیگابایت | Samsung Galaxy S22 5G 128/8 GB",
@@ -148,7 +148,7 @@ export const samsung: {
     maxPrice: 38500000,
   },
   {
-    id: 6,
+    id: 11,
     image: {s22},
     title:
       "گوشی سامسونگ S22 5G | حافظه 256 رم 8 گیگابایت | Samsung Galaxy S22 5G 256/8 GB",
@@ -158,7 +158,7 @@ export const samsung: {
     maxPrice: 41330000,
   },
   {
-    id: 7,
+    id: 12,
     image: {zfo4},
     title:
       "گوشی سامسونگ Z Fold 4 5G | حافظه 512 رم 12 گیگابایت | Samsung Galaxy Z Fold 4 5G 512/12 GB",
@@ -168,7 +168,7 @@ export const samsung: {
     maxPrice: 76600000,
   },
   {
-    id: 8,
+    id: 13,
     image: {s23p},
     title:
       "گوشی سامسونگ S23 Plus 5G | حافظه 256 رم 8 گیگابایت | Samsung Galaxy S23 Plus 5G 256/8 GB",
@@ -178,7 +178,7 @@ export const samsung: {
     maxPrice: 64300000,
   },
   {
-    id: 9,
+    id: 14,
     image: {zfl4},
     title:
       "گوشی سامسونگ Z Flip 4 5G | حافظه 512 رم 8 گیگابایت | Samsung Galaxy Z Flip 4 5G 512/8 GB",
@@ -188,7 +188,7 @@ export const samsung: {
     maxPrice: 56500000,
   },
   {
-    id: 10,
+    id: 15,
     image: {s23},
     title:
       "گوشی سامسونگ S23 5G | حافظه 256 رم 8 گیگابایت | Samsung Galaxy S23 5G 256/8 GB",
@@ -209,7 +209,7 @@ export const xiaomi: {
   maxPrice: number;
 }[] = [
   {
-    id: 1,
+    id: 16,
     image: {x12tp},
     title:
       "گوشی شیائومی 12T Pro 5G | حافظه 256 رم 12 گیگابایت | Xiaomi 12T Pro 5G 256/12 GB",
@@ -219,7 +219,7 @@ export const xiaomi: {
     maxPrice: 29500000,
   },
   {
-    id: 2,
+    id: 17,
     image: {x12t},
     title:
       "گوشی شیائومی 12T 5G | حافظه 256 رم 8 گیگابایت | Xiaomi 12T 5G 256/8 GB",
@@ -229,7 +229,7 @@ export const xiaomi: {
     maxPrice: 25600000,
   },
   {
-    id: 3,
+    id: 18,
     image: {x12},
     title:
       "گوشی شیائومی 12 5G | حافظه 256 رم 12 گیگابایت | Xiaomi 12 5G 256/12 GB",
@@ -239,7 +239,7 @@ export const xiaomi: {
     maxPrice: 29500000,
   },
   {
-    id: 4,
+    id: 19,
     image: {x11tp},
     title:
       "گوشی شیائومی 11T Pro 5G | حافظه 256 رم 12 گیگابایت | Xiaomi 11T Pro 5G 256/12 GB",
@@ -249,7 +249,7 @@ export const xiaomi: {
     maxPrice: 23900000,
   },
   {
-    id: 5,
+    id: 20,
     image: {x12p},
     title:
       "گوشی شیائومی 12Pro 5G | حافظه 256 رم 12 گیگابایت | Xiaomi 12 Pro 5G 256/12 GB",
@@ -259,7 +259,7 @@ export const xiaomi: {
     maxPrice: 31000000,
   },
   {
-    id: 6,
+    id: 21,
     image: {pf4},
     title:
       "گوشی شیائومی Poco F4 5G | حافظه 256 رم 8 گیگابایت | Xiaomi Poco F4 5G 256/8 GB",
@@ -269,7 +269,7 @@ export const xiaomi: {
     maxPrice: 18500000,
   },
   {
-    id: 7,
+    id: 22,
     image: {mi11u},
     title:
       "گوشی شیائومی Mi 11 Ultra 5G | حافظه 256 رم 12 گیگابایت | Xiaomi Mi 11 Ultra 5G 256/12 GB",
@@ -279,7 +279,7 @@ export const xiaomi: {
     maxPrice: 36900000,
   },
   {
-    id: 8,
+    id: 23,
     image: {note12p},
     title:
       "گوشی شیائومی Redmi Note 12 Pro 5G | حافظه 256 رم 12 گیگابایت | Xiaomi Redmi Note 12 Pro 5G 256/12 GB",
@@ -289,7 +289,7 @@ export const xiaomi: {
     maxPrice: 19490000,
   },
   {
-    id: 9,
+    id: 24,
     image: {k50g},
     title:
       "گوشی شیائومی Redmi K50 Gaming 5G | حافظه 256 رم 12 گیگابایت | Xiaomi Redmi K50 Gaming 5G 256/12 GB",
@@ -299,7 +299,7 @@ export const xiaomi: {
     maxPrice: 23000000,
   },
   {
-    id: 10,
+    id: 25,
     image: {bsh5p},
     title:
       "گوشی شیائومی Black Shark 5 Pro 5G | حافظه 256 رم 12 گیگابایت | Xiaomi Black Shark 5 Pro 5G 256/12 GB",
@@ -309,7 +309,7 @@ export const xiaomi: {
     maxPrice: 35000000,
   },
   {
-    id: 11,
+    id: 26,
     image: {x12su},
     title:
       "گوشی شیائومی 12S Ultra 5G | حافظه 512 رم 12 گیگابایت | Xiaomi 12S Ultra 5G 512/12 GB",

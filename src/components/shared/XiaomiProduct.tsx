@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Icons
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -20,11 +21,13 @@ interface ProductsProps {
 const XiaomiProduct: React.FC<ProductsProps> = ({ productData }) => {
   return (
     <div className="flex flex-col bg-white grow-0 shrink-0 basis-36 h-80 mt-3 rounded-lg">
-      <img
-        src={Object.values(productData.image)[0]! as string}
-        alt="iphone"
-        className="w-36 mx-auto py-4"
-      />
+      <Link to={`/${productData.id}`}> 
+        <img
+          src={Object.values(productData.image)[0]! as string}
+          alt="iphone"
+          className="w-36 mx-auto py-4"
+        />
+      </Link>
       <h3 className="text-sm h-16 mb-10 overflow-hidden px-4">
         {productData.title}
       </h3>
