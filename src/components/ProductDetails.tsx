@@ -2,6 +2,16 @@ import React from "react";
 import { apple, samsung, xiaomi } from "../assets/products/products";
 import { useParams } from "react-router-dom";
 
+// Chart
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJs,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+} from "chart.js/auto";
+
 // Icons
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -19,12 +29,92 @@ interface type {
   maxPrice: number;
 }
 
+ChartJs.register(LineElement, CategoryScale, LinearScale, PointElement);
+
 const ProductDetails: React.FC = () => {
   const params = useParams();
   const id: any = params.id;
   const data = [...apple, ...samsung, ...xiaomi];
   const product: type = data[id];
   const { image, title, storage, ram, minPrice, maxPrice } = product;
+
+  // Chart
+  const chartData: any = {
+    labels: ["12 اردیبهشت", "13 اردیبهشت", "14 اردیبهشت", "15 اردیبهشت"],
+    datasets: [
+      {
+        label: "میانگین قیمت",
+        data: [minPrice + 2000000, minPrice + 4000000, maxPrice, minPrice],
+        backgroundColor: "transparent",
+        borderColor: "green",
+        pointBorderColor: "transparent",
+      },
+    ],
+  };
+  const options: any = {
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          font: {
+            family: "vazir",
+            size: 10
+          },
+          boxWidth: 3,
+          boxHeight: 3,
+          useBorderRadius: true,
+          borderRadius: 2,
+        },
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+        border: {
+          display: false,
+        },
+        ticks: {
+          font: {
+            family: "vazir",
+            size: 10
+          },
+          minRotation: 45,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
+        border: {
+          display: false,
+        },
+        title: {
+          display: true,
+          text: "تومان",
+          font: {
+            family: "vazir",
+            size: 10
+          },
+        },
+        ticks: {
+          font: {
+            family: "vazir",
+            size: 10
+          },
+        }
+      },
+    },
+    layout: {
+      padding: {
+        right: 20,
+        left: 20,
+        top: 9
+      },
+    },
+  };
 
   return (
     <div className="bg-slate-100">
@@ -274,10 +364,16 @@ const ProductDetails: React.FC = () => {
               <p className="text-xs font-semibold">ابعاد (میلی متر)</p>
               <span className="text-xs text-slate-500">170 * 78 * 7.7</span>
             </div>
-            <button className="text-sm text-red-600 w-full mx-auto py-3">نمایش تمام مشخصات</button>
+            <button className="text-sm text-red-600 w-full mx-auto py-3">
+              نمایش تمام مشخصات
+            </button>
           </div>
         </div>
         {/* the Chart */}
+        <div className="bg-white mx-3 rounded h-fit">
+          <Line data={chartData} options={options}></Line>
+          <div className="text-red-600 text-sm text-center w-full pt-10 pb-3">لیست تغییرات قیمت</div>
+        </div>
       </div>
       <div className="h-20"></div>
       {/* <img src={Object.values(image)[0]! as string} alt="" /> */}
