@@ -1,6 +1,6 @@
 import React from "react";
 import { apple, samsung, xiaomi } from "../assets/products/products";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, NavigateFunction } from "react-router-dom";
 
 // Chart
 import { Line } from "react-chartjs-2";
@@ -18,6 +18,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import torob from "../assets/images/torob_logo.svg";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import PlaceIcon from "@mui/icons-material/Place";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 
 interface type {
   id: number;
@@ -58,7 +62,7 @@ const ProductDetails: React.FC = () => {
         labels: {
           font: {
             family: "vazir",
-            size: 10
+            size: 10,
           },
           boxWidth: 3,
           boxHeight: 3,
@@ -79,7 +83,7 @@ const ProductDetails: React.FC = () => {
         ticks: {
           font: {
             family: "vazir",
-            size: 10
+            size: 10,
           },
           minRotation: 45,
         },
@@ -96,33 +100,35 @@ const ProductDetails: React.FC = () => {
           text: "تومان",
           font: {
             family: "vazir",
-            size: 10
+            size: 10,
           },
         },
         ticks: {
           font: {
             family: "vazir",
-            size: 10
+            size: 10,
           },
-        }
+        },
       },
     },
     layout: {
       padding: {
         right: 20,
         left: 20,
-        top: 9
+        top: 9,
       },
     },
   };
+
+  const navigate: NavigateFunction = useNavigate();
 
   return (
     <div className="bg-slate-100">
       <header
         className="flex items-center gap-5  h-10 px-3
-      border-b border-slate-200 bg-white"
+      border-b border-slate-200 bg-white sticky top-0 z-10"
       >
-        <ArrowForwardIcon />
+        <ArrowForwardIcon onClick={() => navigate(-1)} />
         <p className="text-sm whitespace-nowrap overflow-hidden text-ellipsis">
           {title}
         </p>
@@ -142,8 +148,8 @@ const ProductDetails: React.FC = () => {
         {/*  */}
         <div className="flex pr-3 mb-2">
           <div className="border border-slate-200 rounded py-2 px-4 hover:border-2 hover:border-slate-400">
-            <p className="text-xs font-semibold pb-1">
-              {storage + "GB"} {ram && "-"} {ram + "GB"}
+            <p dir="ltr" className="text-xs font-semibold pb-1 text-right">
+              {storage + " GB"} {ram ? `- ${ram} GB` : ""}
             </p>
             <p className="text-xs">از {minPrice} تومان</p>
           </div>
@@ -195,13 +201,18 @@ const ProductDetails: React.FC = () => {
               <span className="text-xs font-normal">از{minPrice}تومان</span>
             </div>
             <div className="flex items-center justify-center bg-white rounded-xl w-28 h-12">
-              <p className="text-xs">انتخاب شهر</p>
+              <PlaceIcon fontSize="small" />
+              <p className="text-xs px-1">انتخاب شهر</p>
+              <ExpandMoreIcon fontSize="small" />
             </div>
           </div>
         </div>
         {/* shoppers */}
         <div className="bg-white mx-3 rounded px-3">
-          <div className="flex items-center justify-center gap-8 h-12 border-b-2 border-slate-100">
+          <div
+            className="flex items-center justify-center gap-8 h-12 border-b-2 
+                        border-slate-100 sticky top-10 bg-white"
+          >
             <div className="flex items-center gap-2">
               <p className="text-sm">خرید اینترنتی</p>
               <span className="text-xs font-extralight bg-slate-200 rounded-md px-1">
@@ -224,10 +235,12 @@ const ProductDetails: React.FC = () => {
               </span>
             </div>
             <div className="flex items-center justify-between py-1">
-              <p className="text-xs text-green-700 bg-green-200 px-3 py-1 rounded-xl">
+              <p className="text-xs text-green-700 bg-green-200 px-2 rounded-xl">
                 5 (5 سال در ترب)
+                <ExpandMoreIcon />
               </p>
-              <span className="text-xs text-slate-500 bg-slate-200 px-2 py-1 rounded-xl">
+              <span className="text-xs text-slate-500 bg-slate-200 px-2 rounded-xl">
+                <FlagOutlinedIcon />
                 گزارش
               </span>
             </div>
@@ -259,10 +272,12 @@ const ProductDetails: React.FC = () => {
               </span>
             </div>
             <div className="flex items-center justify-between py-1">
-              <p className="text-xs text-green-700 bg-green-200 px-3 py-1 rounded-xl">
+              <p className="text-xs text-green-700 bg-green-200 px-2 rounded-xl">
                 5 (5 سال در ترب)
+                <ExpandMoreIcon />
               </p>
-              <span className="text-xs text-slate-500 bg-slate-200 px-2 py-1 rounded-xl">
+              <span className="text-xs text-slate-500 bg-slate-200 px-2 rounded-xl">
+                <FlagOutlinedIcon />
                 گزارش
               </span>
             </div>
@@ -303,7 +318,8 @@ const ProductDetails: React.FC = () => {
               <p className="text-xs text-slate-600 bg-slate-200 px-2 py-1 rounded-xl">
                 فروشگاه حضوری
               </p>
-              <span className="text-xs text-slate-600 bg-slate-200 px-2 py-1 rounded-xl">
+              <span className="text-xs text-slate-500 bg-slate-200 px-2 rounded-xl">
+                <FlagOutlinedIcon />
                 گزارش
               </span>
             </div>
@@ -333,7 +349,8 @@ const ProductDetails: React.FC = () => {
               <p className="text-xs text-slate-600 bg-slate-200 px-2 py-1 rounded-xl">
                 فروشگاه حضوری
               </p>
-              <span className="text-xs text-slate-600 bg-slate-200 px-2 py-1 rounded-xl">
+              <span className="text-xs text-slate-500 bg-slate-200 px-2 rounded-xl">
+                <FlagOutlinedIcon />
                 گزارش
               </span>
             </div>
@@ -370,13 +387,41 @@ const ProductDetails: React.FC = () => {
           </div>
         </div>
         {/* the Chart */}
+        <h3 className="text-sm font-semibold py-1 px-3">تغییرات قیمت</h3>
         <div className="bg-white mx-3 rounded h-fit">
           <Line data={chartData} options={options}></Line>
-          <div className="text-red-600 text-sm text-center w-full pt-10 pb-3">لیست تغییرات قیمت</div>
+          <div className="text-red-600 text-sm text-center w-full pt-10 pb-3">
+            لیست تغییرات قیمت
+          </div>
+        </div>
+        {/* similar products */}
+        <div>
+          <h3 className="text-sm font-semibold text-center pt-4">
+            محصولات مشابه
+          </h3>
+          <div className="mx-3 flex items-center justify-between flex-wrap gap-3 mt-3">
+            {data.map((product) => (
+              <div key={product.id} className="bg-white rounded px-3 w-40 h-80">
+                <img
+                  src={Object.values(product.image)[0]! as string}
+                  alt="کلیک کنید"
+                  className="w-36 mx-auto py-4"
+                />
+                <p className="text-sm h-14 overflow-hidden text-ellipsis my-5">
+                  {product.title}
+                </p>
+                <p className="text-sm">از {product.minPrice}</p>
+                <p className="text-xs text-slate-500 mt-1">در 37 فروشگاه</p>
+                <div className="flex items-center justify-evenly mt-4 text-slate-400">
+                  <FavoriteBorderIcon />
+                  <NotificationsNoneIcon />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="h-20"></div>
-      {/* <img src={Object.values(image)[0]! as string} alt="" /> */}
     </div>
   );
 };
