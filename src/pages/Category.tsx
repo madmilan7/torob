@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Icons
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -10,10 +11,10 @@ const Category = () => {
         <label htmlFor="" className="text-sm">همه دسته ها</label>
       </div>
       <ul className="bg-white">
-        <div className="flex items-center justify-between h-12 border-b border-slate-100 px-3">
+        <Link to="/mobile" className="flex items-center justify-between h-12 border-b border-slate-100 px-3">
           <li className="pr-2 text-sm">موبایل و کالای دیجیتال</li>
           <NavigateBeforeIcon className="text-slate-500" />
-        </div>
+        </Link>
         <div className="flex items-center justify-between h-12 border-b border-slate-100 px-3">
           <li className="pr-2 text-sm">لپ تاپ, کامپیوتر, اداری</li>
           <NavigateBeforeIcon className="text-slate-500" />
