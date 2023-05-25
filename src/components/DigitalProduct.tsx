@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate, Link } from "react-router-dom";
 
 // Icons
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -10,7 +10,7 @@ const DigitalProduct: React.FC = () => {
   const navigate: NavigateFunction = useNavigate();
 
   return (
-    <div className="bg-slate-100 pb-20">
+    <div className="bg-slate-100 pb-24">
       <div className="flex items-center bg-white h-10 px-3 border-b border-slate-100">
         <ArrowForwardIcon onClick={() => navigate(-1)} />
         <h3 className="text-xs text-slate-700 mx-auto">موبایل و کالای دیجیتال</h3>
@@ -20,10 +20,10 @@ const DigitalProduct: React.FC = () => {
       </div>
       {/* list */}
       <ul className="bg-white">
-        <div className="flex items-center justify-between h-12 border-b border-slate-100 px-3">
+        <Link to="/digitalProducts" className="flex items-center justify-between h-12 border-b border-slate-100 px-3">
           <li className="pr-2 text-xs text-slate-600">گوشی موبایل</li>
           <NavigateBeforeIcon className="text-slate-400" />
-        </div>
+        </Link>
         <div className="flex items-center justify-between h-12 border-b border-slate-100 px-3">
           <li className="pr-2 text-xs text-slate-600">تبلت</li>
           <NavigateBeforeIcon className="text-slate-400" />

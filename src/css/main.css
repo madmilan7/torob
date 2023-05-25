@@ -5,7 +5,18 @@
 @import url("./font.css");
 
 @layer base {
-    html {
-      font-family: vazir;
-    }
+  html {
+    font-family: vazir;
   }
+}
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
