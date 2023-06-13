@@ -20,8 +20,7 @@ interface ProductsType {
   storage: number;
   minPrice: number;
   maxPrice: number;
-}
-[];
+}[];
 
 const AllProducts: React.FC = () => {
   const navigate = useNavigate();
@@ -29,6 +28,7 @@ const AllProducts: React.FC = () => {
   const data = [...apple, ...samsung, ...xiaomi];
 
   const [isSort, setIsSort] = useState<boolean>(false);
+  const [ndata, setNdata] = useState<ProductsType[]>([]);
 
   // sort list display methods
   const selectSort = () => {
@@ -40,19 +40,23 @@ const AllProducts: React.FC = () => {
 
   // Sort
   let sort: string = "";
-  const selectedSort = (e: any) => {
-    sort = e.target.dataset.selectedSort;
-  };
-  let sortedProducts: ProductsType[] = [];
-  const sortProducts = () => {
-    console.log(sort);
-    sortedProducts = data.sort((a, b): any => {
+  const sortProducts = (sort: string) => {
+    const sortedProducts = data.sort((a, b): any => {
       if (sort === "Ascending") {
         return a.minPrice > b.minPrice ? 1 : -1;
       } else if (sort === "Descending") {
         return a.minPrice < b.minPrice ? 1 : -1;
       }
     });
+    return sortedProducts;
+  };
+
+  const selectedSort = (e: any) => {
+    sort = e.target.dataset.selectedSort;
+  }
+
+  const doneSort = () => {
+    setNdata(sortProducts(sort));
     setIsSort(true);
     cancelSelectSort();
   };
@@ -138,7 +142,7 @@ const AllProducts: React.FC = () => {
       </div>
       {/* products */}
       <div className="mx-3 flex items-center justify-between flex-wrap gap-2 pb-2">
-        {(isSort ? sortedProducts : data).map((product) => (
+        {(isSort ? ndata : data).map((product) => (
           <div key={product.id} className="bg-white rounded px-3 w-40 h-80">
             <img
               src={Object.values(product.image)[0]! as string}
@@ -183,10 +187,7 @@ const AllProducts: React.FC = () => {
           className="flex items-center justify-between gap-3 py-2 px-3 
               border-t border-slate-100 absolute bottom-0 w-full"
         >
-          <button
-            onClick={sortProducts}
-            className="text-sm text-white bg-zinc-700 w-full py-1 rounded"
-          >
+          <button onClick={doneSort} className="text-sm text-white bg-zinc-700 w-full py-1 rounded">
             اعمال فیلتر
           </button>
           <button className="text-sm text-zinc-700 px-3 py-1 border border-zinc-700 rounded">
