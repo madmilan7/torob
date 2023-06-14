@@ -20,7 +20,8 @@ interface ProductsType {
   storage: number;
   minPrice: number;
   maxPrice: number;
-}[];
+}
+[];
 
 const AllProducts: React.FC = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const AllProducts: React.FC = () => {
 
   const selectedSort = (e: any) => {
     sort = e.target.dataset.selectedSort;
-  }
+  };
 
   const doneSort = () => {
     setNdata(sortProducts(sort));
@@ -187,7 +188,65 @@ const AllProducts: React.FC = () => {
           className="flex items-center justify-between gap-3 py-2 px-3 
               border-t border-slate-100 absolute bottom-0 w-full"
         >
-          <button onClick={doneSort} className="text-sm text-white bg-zinc-700 w-full py-1 rounded">
+          <button
+            onClick={doneSort}
+            className="text-sm text-white bg-zinc-700 w-full py-1 rounded"
+          >
+            اعمال فیلتر
+          </button>
+          <button className="text-sm text-zinc-700 px-3 py-1 border border-zinc-700 rounded">
+            حذف
+          </button>
+        </div>
+      </div>
+      {/* filter Brand */}
+      <div className="bg-white z-20 w-full h-full fixed top-0">
+        <div className="flex items-center border-b border-slate-100 py-2 px-3">
+          <ClearIcon fontSize="small" />
+          <h3 className="mx-auto text-xs">انتخاب برند</h3>
+        </div>
+        <div className="px-3">
+          <form className="flex items-center justify-center py-3">
+            <i className="border border-slate-200 p-1 rounded border-l-0 rounded-l-none">
+              <SearchIcon fontSize="small" className="text-slate-500" />
+            </i>
+            <input
+              type="text"
+              className="border border-slate-200 rounded w-full placeholder:text-xs
+                          placeholder:text-slate-500 placeholder:pr-1 py-1 outline-none
+                          border-r-0 rounded-r-none"
+              placeholder="جستجوی برند"
+            />
+          </form>
+          <div className="flex flex-col gap-1">
+            <div
+              className="flex items-center justify-between hover:bg-slate-200 hover:rounded-sm
+                          p-1"
+            >
+              <button className="text-xs w-full text-right">شیائومی</button>
+              <button className="text-xs w-full text-left">Xiaomi</button>
+            </div>
+            <div
+              className="flex items-center justify-between hover:bg-slate-200 hover:rounded-sm
+                          p-1"
+            >
+              <button className="text-xs w-full text-right">سامسونگ</button>
+              <button className="text-xs w-full text-left">Samsung</button>
+            </div>
+            <div
+              className="flex items-center justify-between hover:bg-slate-200 hover:rounded-sm
+                          p-1"
+            >
+              <button className="text-xs w-full text-right">اپل</button>
+              <button className="text-xs w-full text-left">Apple</button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="flex items-center justify-between gap-3 py-2 px-3 
+              border-t border-slate-100 absolute bottom-0 w-full"
+        >
+          <button className="text-sm text-white bg-zinc-700 w-full py-1 rounded">
             اعمال فیلتر
           </button>
           <button className="text-sm text-zinc-700 px-3 py-1 border border-zinc-700 rounded">
