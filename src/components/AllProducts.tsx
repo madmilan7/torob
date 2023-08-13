@@ -47,6 +47,9 @@ const AllProducts: React.FC = () => {
       filteredProducts.sort((a: any, b: any) => b.minPrice - a.minPrice);
     }
     dispatch({ type: "SET_PRODUCTS", payload: filteredProducts });
+    // close 
+    cancelSelectSort();
+    cancelSelectFilter();
   };
 
   // sort list display methods
