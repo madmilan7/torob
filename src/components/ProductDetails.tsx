@@ -1,6 +1,11 @@
 import React from "react";
 import { apple, samsung, xiaomi } from "../assets/products/products";
-import { useParams, useNavigate, NavigateFunction } from "react-router-dom";
+import {
+  useParams,
+  useNavigate,
+  NavigateFunction,
+  Link,
+} from "react-router-dom";
 
 // Chart
 import { Line } from "react-chartjs-2";
@@ -401,22 +406,24 @@ const ProductDetails: React.FC = () => {
           </h3>
           <div className="mx-3 flex items-center justify-between flex-wrap gap-3 mt-3">
             {data.map((product) => (
-              <div key={product.id} className="bg-white rounded px-3 w-40 h-80">
-                <img
-                  src={Object.values(product.image)[0]! as string}
-                  alt="کلیک کنید"
-                  className="w-36 mx-auto py-4"
-                />
-                <p className="text-sm h-14 overflow-hidden text-ellipsis my-5">
-                  {product.title}
-                </p>
-                <p className="text-sm">از {product.minPrice}</p>
-                <p className="text-xs text-slate-500 mt-1">در 37 فروشگاه</p>
-                <div className="flex items-center justify-evenly mt-4 text-slate-400">
-                  <FavoriteBorderIcon />
-                  <NotificationsNoneIcon />
+              <Link to={`/${product.id}`} key={product.id}>
+                <div className="bg-white rounded px-3 w-40 h-80">
+                  <img
+                    src={Object.values(product.image)[0]! as string}
+                    alt="کلیک کنید"
+                    className="w-36 mx-auto py-4"
+                  />
+                  <p className="text-sm h-14 overflow-hidden text-ellipsis my-5">
+                    {product.title}
+                  </p>
+                  <p className="text-sm">از {product.minPrice}</p>
+                  <p className="text-xs text-slate-500 mt-1">در 37 فروشگاه</p>
+                  <div className="flex items-center justify-evenly mt-4 text-slate-400">
+                    <FavoriteBorderIcon />
+                    <NotificationsNoneIcon />
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

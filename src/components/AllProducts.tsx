@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-// Products
-import { apple, samsung, xiaomi } from "../assets/products/products";
+import React, { useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { FilterContext } from "../context/FilterContextProvider";
 
 // Icons
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -13,7 +11,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 
 // interface
-interface ProductsType {
+export interface ProductsType {
   id: number;
   image: string | any;
   title: string;
@@ -26,63 +24,29 @@ interface ProductsType {
 const AllProducts: React.FC = () => {
   const navigate = useNavigate();
 
-  const [products, setProducts] = useState<ProductsType[]>([
-    ...apple,
-    ...samsung,
-    ...xiaomi,
-  ]);
-  const [filters, setFilters] = useState<string>("");
-  const [sort, setSort] = useState<string>("");
+  const { state, dispatch } = useContext(FilterContext);
 
-  useEffect(() => {
-    setProducts([...apple, ...samsung, ...xiaomi]);
-  }, [filters]);
-
-  // get selected filters
-
-  const selectedFilter = (e: any) => {
-    setFilters(e.target.dataset.id);
+  const selectedBrand = (e: any) => {
+    dispatch({ type: "SET_BRAND", payload: e.target.value });
+  };
+  const selectedSorting = (e: any) => {
+    dispatch({ type: "SET_SORTING", payload: e.target.value });
   };
 
-  const selectedSort = (e: any) => {
-    setSort(e.target.dataset.selectedSort);
-  };
-
-  // apply filters
-  const applyFilters = () => {
-    if (filters === "samsung") {
-      const filteredProducts = [...products].filter((product) => {
-        return product.title.toLocaleLowerCase().includes("samsung");
-      });
-      setProducts(filteredProducts);
-    } else if (filters === "apple") {
-      const filteredProducts = [...products].filter((product) => {
-        return product.title.toLocaleLowerCase().includes("apple");
-      });
-      setProducts(filteredProducts);
-    } else if (filters === "xiaomi") {
-      const filteredProducts = [...products].filter((product) => {
-        return product.title.toLocaleLowerCase().includes("xiaomi");
-      });
-      setProducts(filteredProducts);
-    } else return;
-    cancelSelectFilter();
-  };
-
-  // apply sorting
-  const applySort = () => {
-    if (sort === "Ascending") {
-      const sortedProducts = [...products].sort((a, b): any => {
-        return a.minPrice > b.minPrice ? 1 : -1;
-      });
-      setProducts(sortedProducts);
-    } else if (sort === "Descending") {
-      const sortedProducts = [...products].sort((a, b): any => {
-        return a.minPrice < b.minPrice ? 1 : -1;
-      });
-      setProducts(sortedProducts);
-    } else return;
-    cancelSelectSort();
+  // Brand filter and sorting
+  const sortingAndFilter = () => {
+    // filter brand
+    let filteredProducts = state.products;
+    filteredProducts = filteredProducts.filter((product: any) => {
+      return product.title.toLowerCase().includes(state.brand);
+    });
+    // sorting
+    if (state.sorting === "ارزان ترین") {
+      filteredProducts.sort((a: any, b: any) => a.minPrice - b.minPrice);
+    } else if (state.sorting === "گران ترین") {
+      filteredProducts.sort((a: any, b: any) => b.minPrice - a.minPrice);
+    }
+    dispatch({ type: "SET_PRODUCTS", payload: filteredProducts });
   };
 
   // sort list display methods
@@ -151,16 +115,6 @@ const AllProducts: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* selected filter */}
-      <div className="flex items-center justify-between py-3 border-b border-slate-200 px-3">
-        <div
-          className="flex items-center justify-between w-fit gap-1 bg-white px-3 py-1 rounded-2xl
-                        border border-slate-200 overflow-x-auto no-scrollbar"
-        >
-          <p className="text-xs">سامسونگ</p>
-          <ClearIcon fontSize="small" className="scale-75" />
-        </div>
-      </div>
       {/* brands */}
       <div className="py-2 px-3 flex items-center gap-3 overflow-x-auto no-scrollbar">
         <p className="text-sm flex-shrink-0 font-extralight">انتخاب برند</p>
@@ -185,23 +139,25 @@ const AllProducts: React.FC = () => {
       </div>
       {/* products */}
       <div className="mx-3 flex items-center justify-between flex-wrap gap-2 pb-2">
-        {products?.map((product) => (
-          <div key={product.id} className="bg-white rounded px-3 w-40 h-80">
-            <img
-              src={Object.values(product.image)[0]! as string}
-              alt="کلیک کنید"
-              className="w-36 mx-auto py-3"
-            />
-            <p className="text-sm h-14 overflow-hidden text-ellipsis my-5">
-              {product.title}
-            </p>
-            <p className="text-sm">از {product.minPrice}</p>
-            <p className="text-xs text-slate-500 mt-1">در 37 فروشگاه</p>
-            <div className="flex items-center justify-evenly mt-4 text-slate-400">
-              <FavoriteBorderIcon />
-              <NotificationsNoneIcon />
+        {state.products.map((product: ProductsType) => (
+          <Link to={`/${product.id}`} key={product.id}>
+            <div className="bg-white rounded px-3 w-40 h-80">
+              <img
+                src={Object.values(product.image)[0]! as string}
+                alt="کلیک کنید"
+                className="w-36 mx-auto py-3"
+              />
+              <p className="text-sm h-14 overflow-hidden text-ellipsis my-5">
+                {product.title}
+              </p>
+              <p className="text-sm">از {product.minPrice}</p>
+              <p className="text-xs text-slate-500 mt-1">در 37 فروشگاه</p>
+              <div className="flex items-center justify-evenly mt-4 text-slate-400">
+                <FavoriteBorderIcon />
+                <NotificationsNoneIcon />
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       {/* Sort */}
@@ -212,16 +168,16 @@ const AllProducts: React.FC = () => {
         </div>
         <div className="flex flex-col items-start gap-3 px-5 py-3">
           <button
-            onClick={selectedSort}
+            value="ارزان ترین"
             className="text-sm hover:text-red-600"
-            data-selected-sort="Ascending"
+            onClick={selectedSorting}
           >
             ارزان ترین
           </button>
           <button
-            onClick={selectedSort}
+            value="گران ترین"
             className="text-sm hover:text-red-600"
-            data-selected-sort="Descending"
+            onClick={selectedSorting}
           >
             گران ترین
           </button>
@@ -231,8 +187,8 @@ const AllProducts: React.FC = () => {
               border-t border-slate-100 absolute bottom-0 w-full"
         >
           <button
-            onClick={applySort}
             className="text-sm text-white bg-zinc-700 w-full py-1 rounded"
+            onClick={sortingAndFilter}
           >
             اعمال فیلتر
           </button>
@@ -264,33 +220,54 @@ const AllProducts: React.FC = () => {
             />
           </form>
           <div className="flex flex-col gap-2">
-            <button
-              onClick={selectedFilter}
-              data-id="samsung"
-              className="flex items-center justify-between hover:bg-slate-200
-                                p-1 rounded-sm"
-            >
-              <span className="text-xs">سامسونگ</span>
-              <span className="text-xs">Samsung</span>
-            </button>
-            <button
-              onClick={selectedFilter}
-              data-id="xiaomi"
-              className="flex items-center justify-between hover:bg-slate-200
-                                p-1 rounded-sm"
-            >
-              <span className="text-xs">شیائومی</span>
-              <span className="text-xs">Xiaomi</span>
-            </button>
-            <button
-              onClick={selectedFilter}
-              data-id="apple"
-              className="flex items-center justify-between hover:bg-slate-200
-                                p-1 rounded-sm"
-            >
-              <span className="text-xs">اپل</span>
-              <span className="text-xs">Apple</span>
-            </button>
+            <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
+              <button
+                value="سامسونگ"
+                className="p-1 text-xs text-right w-full"
+                onClick={selectedBrand}
+              >
+                سامسونگ
+              </button>
+              <button
+                value="سامسونگ"
+                className="p-1 text-xs text-left w-full"
+                onClick={selectedBrand}
+              >
+                Samsung
+              </button>
+            </div>
+            <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
+              <button
+                value="شیائومی"
+                className="p-1 text-xs text-right w-full"
+                onClick={selectedBrand}
+              >
+                شیائومی
+              </button>
+              <button
+                value="شیائومی"
+                className="p-1 text-xs text-left w-full"
+                onClick={selectedBrand}
+              >
+                Xiaomi
+              </button>
+            </div>
+            <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
+              <button
+                value="اپل"
+                className="p-1 text-xs text-right w-full"
+                onClick={selectedBrand}
+              >
+                اپل
+              </button>
+              <button
+                value="اپل"
+                className="p-1 text-xs text-left w-full"
+                onClick={selectedBrand}
+              >
+                Apple
+              </button>
+            </div>
           </div>
         </div>
         <div
@@ -298,8 +275,8 @@ const AllProducts: React.FC = () => {
               border-t border-slate-100 absolute bottom-0 w-full"
         >
           <button
-            onClick={applyFilters}
             className="text-sm text-white bg-zinc-700 w-full py-1 rounded"
+            onClick={sortingAndFilter}
           >
             اعمال فیلتر
           </button>

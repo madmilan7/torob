@@ -11,17 +11,22 @@ import ProductDetails from "./components/ProductDetails";
 import DigitalProduct from "./components/DigitalProduct";
 import AllProducts from "./components/AllProducts";
 
+// Context
+import FilterContextProvider from "./context/FilterContextProvider";
+
 const App: React.FC = () => {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Search />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/myTorob" element={<MyTorob />} />
-        <Route path="/:id" element={<ProductDetails />} />
-        <Route path="/mobile" element={<DigitalProduct />} />
-        <Route path="/digitalProducts" element={<AllProducts />} />
-      </Routes>
+      <FilterContextProvider>
+        <Routes>
+          <Route path="/" element={<Search />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/myTorob" element={<MyTorob />} />
+          <Route path="/:id" element={<ProductDetails />} />
+          <Route path="/mobile" element={<DigitalProduct />} />
+          <Route path="/digitalProducts" element={<AllProducts />} />
+        </Routes>
+      </FilterContextProvider>
       <Footer />
     </div>
   );

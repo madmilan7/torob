@@ -9,16 +9,16 @@ const Navbar: React.FC = () => {
     <>
       <img src={logo} alt="torob" className="mx-auto mt-14" />
       <form className="flex items-center justify-center sticky top-0 bg-white px-3 py-4">
-        <i className="absolute right-6">
+        <i className="bg-slate-100 h-9 rounded-r-sm">
           <SearchIcon
             fontSize="large"
-            className="text-slate-500 rounded-r-sm"
+            className="text-slate-500"
           />
         </i>
         <input
           type="text"
           className="outline-none bg-slate-100 w-full h-9 rounded-sm 
-          placeholder:text-slate-500 placeholder:text-md placeholder:pr-14 placeholder:pb-2"
+          placeholder:text-slate-500 placeholder:text-md placeholder:pr-4 placeholder:pb-2"
           placeholder="نام کالا را وارد کنید"
         />
       </form>
