@@ -28,7 +28,7 @@ const MyTorob: React.FC = () => {
   };
 
   return (
-    <div className="pb-4 bg-slate-100">
+    <div className="bg-slate-100 h-screen pb-4">
       <header className="flex flex-col items-center gap-4 py-6 border-b-2 border-slate-200 bg-white">
         <img src={torob} alt="ترب" className="w-8" />
         <button className="text-sm text-white bg-red-600 px-14 py-1 rounded">

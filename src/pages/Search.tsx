@@ -12,24 +12,32 @@ import Banner4 from "../components/Banner4";
 import Banner5 from "../components/Banner5";
 import Banner6 from "../components/Banner6";
 import Banner7 from "../components/Banner7";
+import SearchDesktop from "../components/shared/SearchDesktop";
 
 const Search = () => {
   return (
     <div>
-      <Navbar />
-      <Banner />
-      <AppleProducts />
-      <Banner2 />
-      <SamProducts />
-      <Banner3 />
-      <XiaomiProducts />
-      <Banner4 />
-      <AppleProducts />
-      <Banner5 />
-      <SamProducts />
-      <Banner6 />
-      <XiaomiProducts />
-      <Banner7 />
+      {/* mobile version */}
+      <div className="sm:hidden">
+        <Navbar />
+        <Banner />
+        <AppleProducts />
+        <Banner2 />
+        <SamProducts />
+        <Banner3 />
+        <XiaomiProducts />
+        <Banner4 />
+        <AppleProducts />
+        <Banner5 />
+        <SamProducts />
+        <Banner6 />
+        <XiaomiProducts />
+        <Banner7 />
+      </div>
+      {/* desktop version */}
+      <div>
+        <SearchDesktop />
+      </div>
     </div>
   );
 };

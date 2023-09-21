@@ -10,7 +10,7 @@ const DigitalProduct: React.FC = () => {
   const navigate: NavigateFunction = useNavigate();
 
   return (
-    <div className="bg-slate-100 pb-24">
+    <div className="bg-slate-100 h-screen">
       <div className="flex items-center bg-white h-10 px-3 border-b border-slate-100">
         <ArrowForwardIcon onClick={() => navigate(-1)} />
         <h3 className="text-xs text-slate-700 mx-auto">موبایل و کالای دیجیتال</h3>
