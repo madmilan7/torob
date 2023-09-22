@@ -30,13 +30,6 @@ const AllProducts: React.FC = () => {
   const { state, dispatch } = useContext(FilterContext);
   const [activeItem, setActiveItem] = useState<string>("");
 
-  const selectedBrand = (e: any) => {
-    dispatch({ type: "SET_BRAND", payload: e.target.value });
-  };
-  const selectedSorting = (e: any) => {
-    dispatch({ type: "SET_SORTING", payload: e.target.value });
-  };
-
   // sort list display methods
   const selectSort = () => {
     document.getElementById("sort")!.classList.remove("hidden");
@@ -51,25 +44,6 @@ const AllProducts: React.FC = () => {
   };
   const cancelSelectFilter = () => {
     document.getElementById("brand-filter")!.classList.add("hidden");
-  };
-
-  // Brand filter and sorting
-  const sortingAndFilter = () => {
-    // filter brand
-    let filteredProducts = state.products;
-    filteredProducts = filteredProducts.filter((product: any) => {
-      return product.title.toLowerCase().includes(state.brand);
-    });
-    // sorting
-    if (state.sorting === "ارزان ترین") {
-      filteredProducts.sort((a: any, b: any) => a.minPrice - b.minPrice);
-    } else if (state.sorting === "گران ترین") {
-      filteredProducts.sort((a: any, b: any) => b.minPrice - a.minPrice);
-    }
-    dispatch({ type: "SET_PRODUCTS", payload: filteredProducts });
-    // close
-    cancelSelectSort();
-    cancelSelectFilter();
   };
 
   const toggleDropdown = (item: string) => {
@@ -119,8 +93,14 @@ const AllProducts: React.FC = () => {
                   <div className="hover:bg-gray-50 p-1 rounded cursor-pointer">
                     <div
                       onClick={() => {
-                        dispatch({ type: "SET_BRAND", payload: "شیائومی" });
-                        sortingAndFilter();
+                        dispatch({
+                          type: "FILTER_PRODUCTS",
+                          payload: "شیائومی",
+                        });
+                        dispatch({
+                          type: "SORT_PRODUCTS",
+                          payload: state.sort,
+                        });
                       }}
                       className="flex items-center justify-between px-2"
                     >
@@ -131,8 +111,14 @@ const AllProducts: React.FC = () => {
                   <div className="hover:bg-gray-50 p-1 rounded cursor-pointer">
                     <div
                       onClick={() => {
-                        dispatch({ type: "SET_BRAND", payload: "سامسونگ" });
-                        sortingAndFilter();
+                        dispatch({
+                          type: "FILTER_PRODUCTS",
+                          payload: "سامسونگ",
+                        });
+                        dispatch({
+                          type: "SORT_PRODUCTS",
+                          payload: state.sort,
+                        });
                       }}
                       className="flex items-center justify-between px-2"
                     >
@@ -143,8 +129,11 @@ const AllProducts: React.FC = () => {
                   <div className="hover:bg-gray-50 p-1 rounded cursor-pointer">
                     <div
                       onClick={() => {
-                        dispatch({ type: "SET_BRAND", payload: "اپل" });
-                        sortingAndFilter();
+                        dispatch({ type: "FILTER_PRODUCTS", payload: "اپل" });
+                        dispatch({
+                          type: "SORT_PRODUCTS",
+                          payload: state.sort,
+                        });
                       }}
                       className="flex items-center justify-between px-2"
                     >
@@ -541,7 +530,7 @@ const AllProducts: React.FC = () => {
               موتورولا
             </p>
           </div>
-          {/* Beardcrumb */}
+          {/* Beardcrumb and select sort */}
           <div className="hidden sm:block mx-10">
             <div className="flex items-center justify-between border-b border-gray-200 py-3">
               <div className="flex items-center gap-2">
@@ -563,11 +552,14 @@ const AllProducts: React.FC = () => {
                 name="sorting"
                 id="sorting"
                 className="bg-transparent text-sm outline-none"
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                  dispatch({ type: "SET_SORT", payload: e.target.value });
+                  dispatch({ type: "SORT_PRODUCTS", payload: state.sort });
+                }}
               >
                 <option value="popular">محبوب ترین</option>
                 <option value="ascending">ارزان ترین</option>
                 <option value="descending">گران ترین</option>
-                <option value="newest">جدید ترین</option>
               </select>
             </div>
             <h1 className="pt-8 pb-4 text-2xl font-semibold text-gray-700">
@@ -576,7 +568,7 @@ const AllProducts: React.FC = () => {
           </div>
           {/* products */}
           <div className="px-3 flex items-center justify-between sm:justify-normal flex-wrap gap-2 pb-2 sm:px-8">
-            {state.products.map((product: ProductsType) => (
+            {state.filteredProducts.map((product: ProductsType) => (
               <Link to={`/${product.id}`} key={product.id}>
                 <div className="bg-white rounded w-40 sm:w-44 h-80 sm:h-[26rem]">
                   <img
@@ -616,16 +608,18 @@ const AllProducts: React.FC = () => {
             </div>
             <div className="flex flex-col items-start gap-3 px-5 py-3">
               <button
-                value="ارزان ترین"
                 className="text-sm hover:text-red-600"
-                onClick={selectedSorting}
+                onClick={() =>
+                  dispatch({ type: "SET_SORT", payload: "ascending" })
+                }
               >
                 ارزان ترین
               </button>
               <button
-                value="گران ترین"
                 className="text-sm hover:text-red-600"
-                onClick={selectedSorting}
+                onClick={() =>
+                  dispatch({ type: "SET_SORT", payload: "descending" })
+                }
               >
                 گران ترین
               </button>
@@ -636,7 +630,10 @@ const AllProducts: React.FC = () => {
             >
               <button
                 className="text-sm text-white bg-zinc-700 w-full py-1 rounded"
-                onClick={sortingAndFilter}
+                onClick={() => {
+                  dispatch({ type: "SORT_PRODUCTS", payload: state.sort });
+                  cancelSelectSort();
+                }}
               >
                 اعمال فیلتر
               </button>
@@ -670,48 +667,54 @@ const AllProducts: React.FC = () => {
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
                   <button
-                    value="سامسونگ"
                     className="p-1 text-xs text-right w-full"
-                    onClick={selectedBrand}
+                    onClick={() => 
+                      dispatch({ type: "SET_BRAND", payload: "samsung" })                     
+                    }
                   >
                     سامسونگ
                   </button>
                   <button
-                    value="سامسونگ"
                     className="p-1 text-xs text-left w-full"
-                    onClick={selectedBrand}
+                    onClick={() => 
+                      dispatch({ type: "SET_BRAND", payload: "samsung" })
+                    }
                   >
                     Samsung
                   </button>
                 </div>
                 <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
                   <button
-                    value="شیائومی"
                     className="p-1 text-xs text-right w-full"
-                    onClick={selectedBrand}
+                    onClick={() => 
+                      dispatch({ type: "SET_BRAND", payload: "xiaomi" })
+                    }
                   >
                     شیائومی
                   </button>
                   <button
-                    value="شیائومی"
                     className="p-1 text-xs text-left w-full"
-                    onClick={selectedBrand}
+                    onClick={() => 
+                      dispatch({ type: "SET_BRAND", payload: "xiaomi" })
+                    }
                   >
                     Xiaomi
                   </button>
                 </div>
                 <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
                   <button
-                    value="اپل"
                     className="p-1 text-xs text-right w-full"
-                    onClick={selectedBrand}
+                    onClick={() => 
+                      dispatch({ type: "SET_BRAND", payload: "apple" })
+                    }
                   >
                     اپل
                   </button>
                   <button
-                    value="اپل"
                     className="p-1 text-xs text-left w-full"
-                    onClick={selectedBrand}
+                    onClick={() => 
+                      dispatch({ type: "SET_BRAND", payload: "apple" })
+                    }
                   >
                     Apple
                   </button>
@@ -724,7 +727,11 @@ const AllProducts: React.FC = () => {
             >
               <button
                 className="text-sm text-white bg-zinc-700 w-full py-1 rounded"
-                onClick={sortingAndFilter}
+                onClick={() => {
+                  dispatch({ type: "FILTER_PRODUCTS", payload: state.brand });
+                  dispatch({ type: "SORT_PRODUCTS", payload: state.sort});
+                  cancelSelectFilter();
+                }}
               >
                 اعمال فیلتر
               </button>
