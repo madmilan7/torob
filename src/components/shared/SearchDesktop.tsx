@@ -16,14 +16,14 @@ const SearchDesktop = () => {
   };
 
   return (
-    <div className="hidden sm:block" onClick={closeMenu}>
+    <div className="hidden md:flex flex-col" onClick={closeMenu}>
       {/* Navbar */}
-      <div className="flex items-center justify-between px-10 py-3">
-        <ul className="flex items-center gap-6">
+      <div className="flex items-center justify-between px-10 py-3 gap-10">
+        <ul className="flex items-center gap-6 overflow-auto no-scrollbar">
           <div>
             <li
               onClick={openMenu}
-              className="text-sm text-gray-500 hover:text-red-600 cursor-pointer"
+              className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer"
             >
               موبایل و کالای دیجیتال
             </li>
@@ -386,42 +386,42 @@ const SearchDesktop = () => {
               </div>
             </div>
           </div>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             لپ‌تاپ، کامپیوتر، اداری
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             هایپر مارکت
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             لوازم خانگی
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             مد و پوشاک
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             زیبایی و بهداشت
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             صوتی و تصویری
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             خودرو و سایر وسایل نقلیه
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             ورزش و سرگرمی
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             سلامت و پزشکی
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             فرهنگی هنر
           </li>
-          <li className="text-sm text-gray-500 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-red-600 cursor-pointer">
             سایر دسته ها
           </li>
         </ul>
         <button
-          className="text-xs bg-white text-gray-500 border border-gray-300
+          className="text-xs whitespace-nowrap bg-white text-gray-500 border border-gray-300
                             rounded px-4 py-1"
         >
           ورود / ثبت نام
@@ -447,35 +447,36 @@ const SearchDesktop = () => {
         </p>
       </div>
       {/* Footer */}
-      <div className="flex items-center justify-between px-10 fixed bottom-0 right-0 left-0 h-10">
+      <div className="flex lg:flex-col xl:flex-row flex-wrap items-center justify-evenly xl:justify-between px-10 
+                      lg:h-20 xl:h-10">
         <ul className="flex items-center gap-6">
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             راهنمای خرید امن
           </li>
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             پیگیری سفارش
           </li>
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             تماس با ما
           </li>
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             درباره ترب
           </li>
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             تخفیف ها
           </li>
         </ul>
         <ul className="flex items-center gap-6">
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             لیست فروشگاه‌ها
           </li>
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             ثبت نام فروشگاه
           </li>
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             پنل فروشگاه‌ها
           </li>
-          <li className="text-sm text-gray-500 hover:text-black cursor-pointer">
+          <li className="text-sm text-gray-500 whitespace-nowrap hover:text-black cursor-pointer">
             فرصت‌های شغلی
           </li>
         </ul>

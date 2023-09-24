@@ -12,6 +12,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ClearIcon from "@mui/icons-material/Clear";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 
 // interface
 export interface ProductsType {
@@ -53,14 +54,15 @@ const AllProducts: React.FC = () => {
   return (
     <div className="bg-slate-100">
       {/* title */}
-      <div className="flex items-center bg-white h-10 px-3 border-b border-slate-100 sm:hidden">
+      <div className="flex items-center bg-white h-10 px-3 border-b border-slate-100 md:hidden">
         <ArrowForwardIcon onClick={() => navigate(-1)} />
         <h3 className="text-xs text-slate-700 mx-auto">گوشی موبایل</h3>
       </div>
       <NavbarDesktop />
-      <div className="sm:flex">
+      <div className="md:flex">
         {/* sidebar filtering */}
-        <aside className="hidden sm:block bg-white h-screen w-96 overflow-y-auto sticky top-0 bottom-0">
+        <aside className="hidden lg:block bg-white h-screen 
+                  w-96 overflow-y-auto sticky top-0 bottom-0">
           {/* Brand selection */}
           <div className="border-b border-gray-200">
             <div
@@ -466,7 +468,7 @@ const AllProducts: React.FC = () => {
         </aside>
         <div className="flex-1">
           {/* search box */}
-          <form className="flex items-center justify-center bg-white px-3 py-4 sm:hidden">
+          <form className="flex items-center justify-center bg-white px-3 py-4 md:hidden">
             <input
               type="text"
               className="outline-none bg-slate-100 w-full h-9 rounded-sm 
@@ -478,8 +480,8 @@ const AllProducts: React.FC = () => {
             </i>
           </form>
           {/* options v-mobile */}
-          <div className="bg-white sm:hidden">
-            <div className="flex items-center justify-between overflow-x-auto gap-2 mx-3 pb-2 no-scrollbar">
+          <div className="bg-white md:hidden">
+            <div className="flex items-center overflow-x-auto gap-2 mx-3 pb-2 no-scrollbar">
               <div className="flex items-center justify-center flex-shrink-0">
                 <p className="text-sm">وضعیت کارکرد</p>
                 <ExpandMoreIcon fontSize="small" className="scale-75" />
@@ -509,7 +511,7 @@ const AllProducts: React.FC = () => {
             </div>
           </div>
           {/* brands */}
-          <div className="py-2 px-3 flex items-center gap-3 overflow-x-auto no-scrollbar sm:hidden">
+          <div className="py-2 px-3 flex items-center gap-3 overflow-x-auto no-scrollbar md:hidden">
             <p className="text-sm flex-shrink-0 font-extralight">انتخاب برند</p>
             <p className="text-xs bg-white px-3 py-1 rounded border border-slate-200">
               سامسونگ
@@ -531,7 +533,7 @@ const AllProducts: React.FC = () => {
             </p>
           </div>
           {/* Beardcrumb and select sort */}
-          <div className="hidden sm:block mx-10">
+          <div className="hidden md:block mx-10">
             <div className="flex items-center justify-between border-b border-gray-200 py-3">
               <div className="flex items-center gap-2">
                 <a href="#">
@@ -566,19 +568,24 @@ const AllProducts: React.FC = () => {
               قیمت انواع گوشی موبایل
             </h1>
           </div>
+          {/* Filter's button */}
+          <div className="mx-10 py-3 lg:hidden cursor-pointer">
+            <i className="text-gray-700"><FilterAltOutlinedIcon /></i>
+            <span className="text-sm text-gray-700">فیلتر ها</span>
+          </div>
           {/* products */}
-          <div className="px-3 flex items-center justify-between sm:justify-normal flex-wrap gap-2 pb-2 sm:px-8">
+          <div className="flex items-center justify-between md:justify-normal flex-wrap gap-2 px-3 pb-2 md:px-8">
             {state.filteredProducts.map((product: ProductsType) => (
               <Link to={`/${product.id}`} key={product.id}>
-                <div className="bg-white rounded w-40 sm:w-44 h-80 sm:h-[26rem]">
+                <div className="bg-white rounded w-40 md:w-44 h-80 md:h-[26rem]">
                   <img
                     src={Object.values(product.image)[0]! as string}
                     alt="کلیک کنید"
                     className="mx-auto py-2"
                   />
                   <p
-                    className="text-sm px-3 text-gray-700 font-semibold h-14 sm:h-20 sm:leading-7
-                                overflow-hidden text-ellipsis mb-20 sm:mb-32"
+                    className="text-sm px-3 text-gray-700 font-semibold h-14 md:h-20 md:leading-7
+                                overflow-hidden text-ellipsis mb-20 md:mb-32"
                   >
                     {product.title}
                   </p>
@@ -668,15 +675,15 @@ const AllProducts: React.FC = () => {
                 <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
                   <button
                     className="p-1 text-xs text-right w-full"
-                    onClick={() => 
-                      dispatch({ type: "SET_BRAND", payload: "samsung" })                     
+                    onClick={() =>
+                      dispatch({ type: "SET_BRAND", payload: "samsung" })
                     }
                   >
                     سامسونگ
                   </button>
                   <button
                     className="p-1 text-xs text-left w-full"
-                    onClick={() => 
+                    onClick={() =>
                       dispatch({ type: "SET_BRAND", payload: "samsung" })
                     }
                   >
@@ -686,7 +693,7 @@ const AllProducts: React.FC = () => {
                 <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
                   <button
                     className="p-1 text-xs text-right w-full"
-                    onClick={() => 
+                    onClick={() =>
                       dispatch({ type: "SET_BRAND", payload: "xiaomi" })
                     }
                   >
@@ -694,7 +701,7 @@ const AllProducts: React.FC = () => {
                   </button>
                   <button
                     className="p-1 text-xs text-left w-full"
-                    onClick={() => 
+                    onClick={() =>
                       dispatch({ type: "SET_BRAND", payload: "xiaomi" })
                     }
                   >
@@ -704,7 +711,7 @@ const AllProducts: React.FC = () => {
                 <div className="flex items-center justify-between hover:bg-slate-200 rounded-sm">
                   <button
                     className="p-1 text-xs text-right w-full"
-                    onClick={() => 
+                    onClick={() =>
                       dispatch({ type: "SET_BRAND", payload: "apple" })
                     }
                   >
@@ -712,7 +719,7 @@ const AllProducts: React.FC = () => {
                   </button>
                   <button
                     className="p-1 text-xs text-left w-full"
-                    onClick={() => 
+                    onClick={() =>
                       dispatch({ type: "SET_BRAND", payload: "apple" })
                     }
                   >
@@ -729,7 +736,7 @@ const AllProducts: React.FC = () => {
                 className="text-sm text-white bg-zinc-700 w-full py-1 rounded"
                 onClick={() => {
                   dispatch({ type: "FILTER_PRODUCTS", payload: state.brand });
-                  dispatch({ type: "SORT_PRODUCTS", payload: state.sort});
+                  dispatch({ type: "SORT_PRODUCTS", payload: state.sort });
                   cancelSelectFilter();
                 }}
               >

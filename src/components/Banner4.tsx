@@ -7,13 +7,13 @@ import clothing from "../assets/images/1-4.jpg";
 
 const Banner4 = () => {
   return (
-    <div className="bg-slate-100 flex items-center justify-center gap-3 py-3">
-      <div className="flex flex-col justify-center gap-5">
-        <img src={babyAccessories} alt="لوازم نوزاد" className="w-40 rounded-lg cursor-pointer" />
-        <img src={clothing} alt="پوشاک" className="w-40 rounded-lg cursor-pointer" />
+    <div className="bg-slate-100 flex items-stretch justify-center gap-3 px-3 py-6">
+      <div className="flex flex-col items-center justify-between">
+        <img src={babyAccessories} alt="لوازم نوزاد" className="min-w-[10rem] rounded-lg cursor-pointer" />
+        <img src={clothing} alt="پوشاک" className="min-w-[10rem] rounded-lg cursor-pointer" />
       </div>
       <div>
-        <img src={homeAppliances} alt="لوازم خانگی" className="w-40 rounded-lg cursor-pointer" />
+        <img src={homeAppliances} alt="لوازم خانگی" className="min-w-[10rem] rounded-lg cursor-pointer" />
       </div>
     </div>
   );

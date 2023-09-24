@@ -5,11 +5,11 @@ import qesta from "../assets/images/800-700_1.jpg";
 
 const Banner3 = () => {
   return (
-    <div className="bg-slate-100 py-3">
+    <div className="bg-slate-100 p-3">
       <img
         src={qesta}
         alt="خرید قسطی"
-        className="w-80 mx-auto rounded-lg cursor-pointer"
+        className="min-w-[20rem] mx-auto cursor-pointer pt-3"
       />
     </div>
   );

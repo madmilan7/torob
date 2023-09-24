@@ -172,18 +172,18 @@ const ProductDetails: React.FC = () => {
     <div className="bg-slate-100">
       <header
         className="flex items-center gap-5  h-10 px-3
-      border-b border-slate-200 bg-white sticky top-0 z-10 sm:hidden"
+      border-b border-slate-200 bg-white sticky top-0 z-10 md:hidden"
       >
         <ArrowForwardIcon onClick={() => navigate(-1)} />
         <p className="text-sm whitespace-nowrap overflow-hidden text-ellipsis">
           {title}
         </p>
       </header>
-      <div className="h-5 sm:hidden"></div>
+      <div className="h-5 md:hidden"></div>
       <NavbarDesktop />
-      <div className="max-w-[80rem] mx-auto">
+      <div className="max-w-[80rem] xl:mx-auto md:mx-10">
         {/* Breadcrumb */}
-        <div className="hidden sm:flex items-center gap-2 h-12">
+        <div className="hidden md:flex items-center gap-2 h-12">
           <a href="#">
             <span className="text-xs text-gray-500">ترب</span>
           </a>
@@ -206,24 +206,24 @@ const ProductDetails: React.FC = () => {
             <span className="text-xs text-gray-500">شیائومی (Xiaomi)</span>
           </a>
         </div>
-        <div className="sm:grid grid-cols-[840px_416px] gap-6">
+        <div className="md:grid grid-cols-[1fr_1fr] xl:grid-cols-[840px_416px] gap-6">
           {/* Showcase */}
-          <div className="bg-white sm:flex pb-3 order-1 sm:rounded sm:py-6">
-            <div className="sm:w-2/3">
+          <div className="bg-white md:flex pb-3 col-span-2 xl:col-span-1 order-1 md:rounded md:py-6">
+            <div className="md:w-2/3">
               <img
                 src={Object.values(image)[0]! as string}
                 alt="گوشی"
-                className="w-40 mx-auto py-4 sm:w-80 sm:h-80 sm:object-cover"
+                className="w-40 mx-auto py-4 md:w-80 md:h-80 md:object-cover"
               />
             </div>
-            <div className="sm:px-6">
+            <div className="md:px-6">
               <p
-                className="text-sm px-3 sm:text-base sm:font-semibold sm:text-gray-700
-                            sm:py-10"
+                className="text-sm px-3 md:text-base md:font-semibold md:text-gray-700
+                            md:py-10"
               >
                 {title}
               </p>
-              <p className="py-4 px-3 text-sm text-red-600 sm:hidden">
+              <p className="py-4 px-3 text-sm text-red-600 md:hidden">
                 از {minPrice} تومان تا {maxPrice} تومان
               </p>
               {/* price and storage */}
@@ -244,14 +244,14 @@ const ProductDetails: React.FC = () => {
               {/* button and icons */}
               <div className="px-3 flex items-center gap-3">
                 <button
-                  className="bg-red-600 text-white px-4 py-1 sm:hidden
+                  className="bg-red-600 text-white px-4 py-1 md:hidden
                             rounded whitespace-nowrap overflow-hidden text-ellipsis"
                 >
                   خرید از ارزانترین فروشنده رجیستر شده
                 </button>
                 <div className="flex items-center justify-between w-full gap-10 py-3">
                   <div
-                    className="hidden sm:flex items-center hover:bg-gray-100 px-2 py-1.5 rounded-lg
+                    className="hidden md:flex items-center hover:bg-gray-100 px-2 py-1.5 rounded-lg
                                   font-semibold text-gray-700 cursor-pointer"
                   >
                     <p>از {minPrice} تومان</p>
@@ -259,20 +259,20 @@ const ProductDetails: React.FC = () => {
                       <ExpandMoreIcon fontSize="small" />
                     </i>
                   </div>
-                  <div className="flex items-center sm:gap-5">
-                    <NotificationsNoneOutlinedIcon className="text-slate-500 sm:text-gray-400" />
-                    <FavoriteBorderIcon className="text-slate-500 sm:text-gray-400" />
-                    <ShareOutlinedIcon className="text-slate-500 sm:text-gray-400" />
+                  <div className="flex items-center md:gap-5">
+                    <NotificationsNoneOutlinedIcon className="text-slate-500 md:text-gray-400" />
+                    <FavoriteBorderIcon className="text-slate-500 md:text-gray-400" />
+                    <ShareOutlinedIcon className="text-slate-500 md:text-gray-400" />
                   </div>
                 </div>
-                <div className="hidden sm:flex items-center text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-2xl">
+                <div className="hidden md:flex items-center text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-2xl">
                   <FlagOutlinedIcon fontSize="small" />
                   گزارش
                 </div>
               </div>
               {/* button desktop */}
               <div
-                className="bg-red-500 rounded-lg w-full sm:flex items-center justify-between
+                className="bg-red-500 rounded-lg w-full md:flex items-center justify-between
                               text-white px-3 py-1 hidden"
               >
                 <div className="leading-8">
@@ -288,7 +288,7 @@ const ProductDetails: React.FC = () => {
             </div>
           </div>
           {/* install torob */}
-          <div className="flex justify-between p-5 bg-white m-3 rounded sm:hidden">
+          <div className="flex justify-between p-5 bg-white m-3 rounded md:hidden">
             <div className="w-2/3 flex flex-col justify-between">
               <p className="text-sm">
                 میخواهید «ترب» را روی گوشی خود نصب کنید؟
@@ -309,11 +309,11 @@ const ProductDetails: React.FC = () => {
             />
           </div>
           {/* Sellers */}
-          <div className="order-3">
-            <div className="px-3 sm:px-6 py-4 sm:bg-white sm:rounded-t">
+          <div className="xl:order-3 order-2">
+            <div className="px-3 md:px-6 py-4 md:bg-white md:rounded-t">
               <div className="flex items-center justify-between mb-4">
                 <p className="text-sm font-bold">فروشنده ها</p>
-                <a href="#" className="text-xs sm:text-sm text-red-600">
+                <a href="#" className="text-xs md:text-sm text-red-600">
                   راهنمای خرید امن
                 </a>
               </div>
@@ -324,7 +324,7 @@ const ProductDetails: React.FC = () => {
                 </div>
                 <div
                   className="flex items-center justify-center bg-white rounded-xl w-28 h-12
-                                sm:border border-gray-300"
+                                md:border border-gray-300"
                 >
                   <PlaceIcon fontSize="small" />
                   <p className="text-xs px-1">انتخاب شهر</p>
@@ -334,8 +334,8 @@ const ProductDetails: React.FC = () => {
             </div>
             <div>
               <div
-                className="flex items-center justify-center sm:justify-start gap-8 border-b-2 
-                        border-slate-100 sticky top-10 sm:top-0 bg-white sm:font-semibold sm:px-6"
+                className="flex items-center justify-center md:justify-start gap-8 border-b-2 rounded-t
+                        border-slate-100 sticky top-10 md:top-0 bg-white md:font-semibold mx-3 md:mx-0 md:px-6"
               >
                 <div
                   onClick={onlineShoping}
@@ -365,47 +365,48 @@ const ProductDetails: React.FC = () => {
               {/*  */}
               <section
                 id="onlineShoping"
-                className="bg-white mx-3 sm:mx-0 rounded px-3 sm:px-0"
+                className="bg-white mx-3 md:mx-0 md:rounded rounded-b px-3 md:px-0"
               >
                 {/* shop */}
                 <div
-                  className="group sm:flex items-start justify-between border-b border-gray-200
-                              sm:hover:bg-gray-50 sm:px-6"
+                  className="group md:flex flex-col xl:flex-row items-start justify-between border-b border-gray-200
+                              md:hover:bg-gray-50 md:px-6"
                 >
                   {/* s01 */}
-                  <div className="group/item flex sm:flex-col items-center sm:items-start sm:w-40 gap-2 py-2 cursor-pointer">
-                    <p className="text-sm font-semibold sm:py-3 sm:group-hover/item:text-blue-400">
+                  <div className="group/item flex xl:flex-col items-center xl:items-start md:w-40 gap-2 
+                                  py-2 md:pt-6 xl:py-2 cursor-pointer">
+                    <p className="text-sm font-semibold md:pb-0 xl:py-3 md:group-hover/item:text-blue-400">
                       مقداد ای تی
                     </p>
-                    <span className="text-xs text-slate-500 font-extralight sm:group-hover/item:text-blue-400">
+                    <span className="text-xs text-slate-500 font-extralight md:group-hover/item:text-blue-400">
                       تهران
                     </span>
                   </div>
                   {/* s02 */}
                   <div>
-                    <div className="flex items-center justify-between sm:justify-normal sm:gap-x-2 py-1 sm:py-4">
-                      <p className="text-xs text-green-700 bg-green-100 px-2 sm:py-0.5 rounded-2xl cursor-pointer">
+                    <div className="flex items-center justify-between md:justify-normal md:gap-x-2 py-1 xl:py-4">
+                      <p className="text-xs text-green-700 bg-green-100 px-2 md:py-0.5 rounded-2xl cursor-pointer">
                         5 (5 سال در ترب)
                         <ExpandMoreIcon />
                       </p>
                       <span
                         className="text-xs text-slate-500 bg-gray-100 px-2 py-0.5 
-                                        sm:py-1 rounded-2xl sm:group-hover:bg-white cursor-pointer"
+                                        md:py-1 rounded-2xl md:group-hover:bg-white cursor-pointer"
                       >
                         <FlagOutlinedIcon fontSize="small" />
                         گزارش
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm py-1 sm:py-0 text-gray-700 sm:group-hover:text-blue-400">
+                    <p className="text-xs md:text-sm py-1 md:pt-2 xl:py-0 text-gray-700 md:group-hover:text-blue-400">
                       {title}
                     </p>
                     <p
-                      className="text-xs font-extralight sm:font-normal text-gray-500 sm:py-3
-                                  sm:group-hover:text-blue-400"
+                      className="text-xs font-extralight md:font-normal text-gray-500 md:py-3
+                                  md:group-hover:text-blue-400"
                     >
                       رجیستر شده | گارانتی سانافون
                     </p>
-                    <div className="py-2 sm:pb-5 sm:pt-0">
+                    <div className="py-2 xl:pb-5 md:pt-0">
                       <p className="inline text-xs text-gray-600 bg-gray-100 rounded-2xl py-1 px-2 cursor-pointer">
                         <PlaceIcon fontSize="small" />
                         آیا امکان{" "}
@@ -415,23 +416,23 @@ const ProductDetails: React.FC = () => {
                     </div>
                   </div>
                   {/* s03 */}
-                  <div className="sm:w-56">
-                    <div className="flex sm:flex-col items-center justify-between sm:items-end sm:justify-normal">
-                      <p className="text-red-600 text-sm sm:py-4">
+                  <div className="xl:w-56 w-full">
+                    <div className="flex xl:flex-col items-center justify-between xl:items-end xl:justify-normal">
+                      <p className="text-red-600 text-sm md:py-4">
                         {minPrice} تومان
                       </p>
                       <button
                         className="text-white bg-red-600 font-semibold border 
-                                   rounded-lg sm:text-sm text-xs px-3 sm:px-5 py-2 sm:py-2.5"
+                                   rounded-lg md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5"
                       >
                         خرید اینترنتی
                       </button>
                     </div>
-                    <div className="flex items-center gap-1 sm:block sm:py-4 py-2">
-                      <p className="text-xs text-gray-500 sm:text-left">
+                    <div className="flex items-center gap-1 xl:block xl:py-4 py-2 md:pt-0 md:pb-4">
+                      <p className="text-xs text-gray-500 md:text-left">
                         آخرین تغییر قیمت فروشگاه:
                       </p>
-                      <p className="text-xs text-gray-500 sm:text-left sm:pt-1">
+                      <p className="text-xs text-gray-500 md:text-left md:pt-1">
                         ۲ ساعت پیش
                       </p>
                     </div>
@@ -439,43 +440,44 @@ const ProductDetails: React.FC = () => {
                 </div>
                 {/* shop */}
                 <div
-                  className="group sm:flex items-start justify-between sm:border-b border-gray-200
-                              sm:hover:bg-gray-50 sm:px-6"
+                  className="group md:flex flex-col xl:flex-row items-start justify-between border-b border-gray-200
+                              md:hover:bg-gray-50 md:px-6"
                 >
                   {/* s01 */}
-                  <div className="group/item flex sm:flex-col items-center sm:items-start sm:w-40 gap-2 py-2 cursor-pointer">
-                    <p className="text-sm font-semibold sm:py-3 sm:group-hover/item:text-blue-400">
+                  <div className="group/item flex xl:flex-col items-center xl:items-start md:w-40 gap-2 
+                                  py-2 md:pt-6 xl:py-2 cursor-pointer">
+                    <p className="text-sm font-semibold md:pb-0 xl:py-3 md:group-hover/item:text-blue-400">
                       مقداد ای تی
                     </p>
-                    <span className="text-xs text-slate-500 font-extralight sm:group-hover/item:text-blue-400">
+                    <span className="text-xs text-slate-500 font-extralight md:group-hover/item:text-blue-400">
                       تهران
                     </span>
                   </div>
                   {/* s02 */}
                   <div>
-                    <div className="flex items-center justify-between sm:justify-normal sm:gap-x-2 py-1 sm:py-4">
-                      <p className="text-xs text-green-700 bg-green-100 px-2 sm:py-0.5 rounded-2xl cursor-pointer">
+                    <div className="flex items-center justify-between md:justify-normal md:gap-x-2 py-1 xl:py-4">
+                      <p className="text-xs text-green-700 bg-green-100 px-2 md:py-0.5 rounded-2xl cursor-pointer">
                         5 (5 سال در ترب)
                         <ExpandMoreIcon />
                       </p>
                       <span
-                        className="text-xs text-slate-500 bg-gray-100 px-2 py-0.5 sm:py-1 rounded-2xl
-                                        sm:group-hover:bg-white cursor-pointer"
+                        className="text-xs text-slate-500 bg-gray-100 px-2 py-0.5 
+                                        md:py-1 rounded-2xl md:group-hover:bg-white cursor-pointer"
                       >
                         <FlagOutlinedIcon fontSize="small" />
                         گزارش
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm py-1 sm:py-0 text-gray-700 sm:group-hover:text-blue-400">
+                    <p className="text-xs md:text-sm py-1 md:pt-2 xl:py-0 text-gray-700 md:group-hover:text-blue-400">
                       {title}
                     </p>
                     <p
-                      className="text-xs font-extralight sm:font-normal text-gray-500 
-                                  sm:py-3 sm:group-hover:text-blue-400"
+                      className="text-xs font-extralight md:font-normal text-gray-500 md:py-3
+                                  md:group-hover:text-blue-400"
                     >
                       رجیستر شده | گارانتی سانافون
                     </p>
-                    <div className="py-2 sm:pb-5 sm:pt-0">
+                    <div className="py-2 xl:pb-5 md:pt-0">
                       <p className="inline text-xs text-gray-600 bg-gray-100 rounded-2xl py-1 px-2 cursor-pointer">
                         <PlaceIcon fontSize="small" />
                         آیا امکان{" "}
@@ -485,32 +487,32 @@ const ProductDetails: React.FC = () => {
                     </div>
                   </div>
                   {/* s03 */}
-                  <div className="sm:w-56">
-                    <div className="flex sm:flex-col items-center justify-between sm:items-end sm:justify-normal">
-                      <p className="text-red-600 text-sm sm:py-4">
+                  <div className="xl:w-56 w-full">
+                    <div className="flex xl:flex-col items-center justify-between xl:items-end xl:justify-normal">
+                      <p className="text-red-600 text-sm md:py-4">
                         {minPrice} تومان
                       </p>
                       <button
                         className="text-white bg-red-600 font-semibold border 
-                                 rounded-lg sm:text-sm text-xs px-3 py-2 sm:px-5 sm:py-2.5"
+                                   rounded-lg md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5"
                       >
                         خرید اینترنتی
                       </button>
                     </div>
-                    <div className="flex items-center gap-1 sm:block py-2 sm:py-4">
-                      <p className="text-xs text-gray-500 sm:text-left">
+                    <div className="flex items-center gap-1 xl:block xl:py-4 py-2 md:pt-0 md:pb-4">
+                      <p className="text-xs text-gray-500 md:text-left">
                         آخرین تغییر قیمت فروشگاه:
                       </p>
-                      <p className="text-xs text-gray-500 sm:text-left sm:pt-1">
+                      <p className="text-xs text-gray-500 md:text-left md:pt-1">
                         ۲ ساعت پیش
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="sm:p-6 py-3">
+                <div className="md:p-6 py-3">
                   <button
                     className="bg-red-600 text-center w-full py-3.5 
-                                    text-white text-sm rounded sm:rounded-lg"
+                                    text-white text-sm rounded md:rounded-lg"
                   >
                     نمایش تمام ۶۹ فروشگاه
                   </button>
@@ -519,127 +521,130 @@ const ProductDetails: React.FC = () => {
               {/*  */}
               <section
                 id="buyPerson"
-                className="bg-white mx-3 sm:mx-0 px-3 sm:px-0 rounded mt-3 sm:mt-6"
+                className="bg-white mx-3 md:mx-0 px-3 md:px-0 rounded mt-3 md:mt-6"
               >
                 {/* person */}
-                <div className="group border-b border-gray-200 sm:hover:bg-gray-50">
-                  <div className="sm:flex sm:px-6">
+                <div className="group border-b border-gray-200 md:hover:bg-gray-50">
+                  <div className="md:flex flex-col xl:flex-row md:px-6">
                     {/* s01 */}
-                    <div className="group/item flex sm:flex-col sm:items-start items-center gap-2 py-3 sm:w-40 cursor-pointer">
+                    <div className="group/item flex xl:flex-col xl:items-start items-center gap-2 py-3 md:pb-2 md:w-40 cursor-pointer">
                       <p
-                        className="text-sm sm:text-base font-semibold sm:py-2 
-                                  text-gray-800 sm:group-hover/item:text-blue-400"
+                        className="text-sm md:text-base font-semibold md:py-2 
+                                  text-gray-800 md:group-hover/item:text-blue-400"
                       >
                         آیفونچی
                       </p>
                       <span
                         className="text-xs font-extralight text-gray-400 
-                                    sm:group-hover/item:text-blue-400"
+                                    md:group-hover/item:text-blue-400"
                       >
                         تهران
                       </span>
                     </div>
                     {/* s02 */}
                     <div>
-                      <div className="flex items-center justify-between sm:justify-normal sm:gap-2 sm:py-4">
+                      <div className="flex items-center justify-between md:justify-normal md:gap-2 xl:py-4">
                         <p className="text-xs text-gray-700 bg-gray-200 px-2 py-1 rounded-2xl cursor-pointer">
                           فروشگاه حضوری
                           <ExpandMoreIcon fontSize="small" />
                         </p>
                         <span
                           className="text-xs text-gray-600 bg-gray-100 px-2 py-1
-                                          rounded-2xl sm:group-hover:bg-white cursor-pointer"
+                                          rounded-2xl md:group-hover:bg-white cursor-pointer"
                         >
                           <FlagOutlinedIcon fontSize="small" />
                           گزارش
                         </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-700 py-2 sm:py-0">
+                      <p className="text-xs md:text-sm text-gray-700 py-2 xl:py-0">
                         خیابان ولیعصر، بلوار میرداماد، مجنمع کامپیوتر پایتخت،
                         طبقه 2، واحد 220
                       </p>
                     </div>
                     {/* s03 */}
                     <div
-                      className="flex sm:flex-col items-center sm:items-end 
-                                  justify-between sm:justify-normal sm:w-56 sm:flex-1"
+                      className="flex xl:flex-col items-center xl:items-end 
+                                  justify-between xl:justify-normal xl:w-56 xl:flex-1"
                     >
-                      <p className="text-sm text-blue-600 sm:py-4">
+                      <p className="text-sm text-blue-600 md:py-4">
                         {minPrice} تومان
                       </p>
                       <p
-                        className="text-xs sm:text-sm text-white bg-blue-600 px-3 py-1 
-                                  sm:px-4 sm:py-2.5 rounded-lg cursor-pointer"
+                        className="text-xs md:text-sm text-white bg-blue-600 px-3 py-1 
+                                  md:px-4 md:py-2.5 rounded-lg cursor-pointer"
                       >
                         اطلاعات تماس
                         <ExpandMoreIcon fontSize="small" />
                       </p>
                     </div>
                   </div>
-                  <p className="text-xs text-slate-500 py-2 sm:pr-6 sm:py-4">
+                  <p className="text-xs text-slate-500 py-2 md:pr-6 md:pt-0 md:pb-4 xl:py-4">
                     آخرین تغییر قیمت در فروشگاه: دیروز
                   </p>
                 </div>
                 {/* person */}
-                <div className="group sm:hover:bg-gray-50 sm:border-b border-gray-200">
-                  <div className="sm:flex sm:px-6">
+                <div className="group border-b border-gray-200 md:hover:bg-gray-50">
+                  <div className="md:flex flex-col xl:flex-row md:px-6">
                     {/* s01 */}
-                    <div className="group/item flex sm:flex-col sm:items-start items-center gap-2 py-3 sm:w-40 cursor-pointer">
+                    <div className="group/item flex xl:flex-col xl:items-start items-center gap-2 py-3 md:pb-2 md:w-40 cursor-pointer">
                       <p
-                        className="text-sm sm:text-base font-semibold sm:py-2
-                                  text-gray-800 sm:group-hover/item:text-blue-400"
+                        className="text-sm md:text-base font-semibold md:py-2 
+                                  text-gray-800 md:group-hover/item:text-blue-400"
                       >
                         آیفونچی
                       </p>
-                      <span className="text-xs font-extralight text-gray-400 sm:group-hover/item:text-blue-400">
+                      <span
+                        className="text-xs font-extralight text-gray-400 
+                                    md:group-hover/item:text-blue-400"
+                      >
                         تهران
                       </span>
                     </div>
                     {/* s02 */}
                     <div>
-                      <div className="flex items-center justify-between sm:justify-normal sm:gap-2 sm:py-4">
+                      <div className="flex items-center justify-between md:justify-normal md:gap-2 xl:py-4">
                         <p className="text-xs text-gray-700 bg-gray-200 px-2 py-1 rounded-2xl cursor-pointer">
                           فروشگاه حضوری
                           <ExpandMoreIcon fontSize="small" />
                         </p>
                         <span
-                          className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded-2xl
-                                          sm:group-hover:bg-white cursor-pointer"
+                          className="text-xs text-gray-600 bg-gray-100 px-2 py-1
+                                          rounded-2xl md:group-hover:bg-white cursor-pointer"
                         >
                           <FlagOutlinedIcon fontSize="small" />
                           گزارش
                         </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-700 py-2 sm:py-0">
+                      <p className="text-xs md:text-sm text-gray-700 py-2 xl:py-0">
                         خیابان ولیعصر، بلوار میرداماد، مجنمع کامپیوتر پایتخت،
                         طبقه 2، واحد 220
                       </p>
                     </div>
                     {/* s03 */}
                     <div
-                      className="flex sm:flex-col items-center sm:items-end 
-                                  justify-between sm:justify-normal sm:w-56 sm:flex-1"
+                      className="flex xl:flex-col items-center xl:items-end 
+                                  justify-between xl:justify-normal xl:w-56 xl:flex-1"
                     >
-                      <p className="text-sm text-blue-600 sm:py-4">
+                      <p className="text-sm text-blue-600 md:py-4">
                         {minPrice} تومان
                       </p>
                       <p
-                        className="text-xs sm:text-sm text-white bg-blue-600 px-3 py-1 
-                                  sm:px-4 sm:py-2.5 rounded-lg cursor-pointer"
+                        className="text-xs md:text-sm text-white bg-blue-600 px-3 py-1 
+                                  md:px-4 md:py-2.5 rounded-lg cursor-pointer"
                       >
                         اطلاعات تماس
                         <ExpandMoreIcon fontSize="small" />
                       </p>
                     </div>
                   </div>
-                  <p className="text-xs text-slate-500 py-2 sm:pr-6 sm:py-4">
+                  <p className="text-xs text-slate-500 py-2 md:pr-6 md:pt-0 md:pb-4 xl:py-4">
                     آخرین تغییر قیمت در فروشگاه: دیروز
                   </p>
                 </div>
-                <div className="sm:p-6 py-3">
+                <div className="md:p-6 py-3">
                   <button
                     className="bg-blue-600 text-center w-full py-3.5 
-                                    text-white text-sm rounded sm:rounded-lg"
+                                    text-white text-sm rounded md:rounded-lg"
                   >
                     نمایش تمام ۹ فروشگاه
                   </button>
@@ -648,221 +653,221 @@ const ProductDetails: React.FC = () => {
             </div>
           </div>
           {/* Specs */}
-          <div className="p-3 sm:p-0 order-4 sm:h-64 row-span-2 sm:min-h-full">
-            <div className="sm:flex flex-col sm:bg-white sm:rounded sm:h-full sm:max-h-full">
+          <div className="p-3 md:p-0 order-3 xl:order-4 md:h-64 xl:row-span-2 row-span-3 md:min-h-full">
+            <div className="md:flex flex-col md:bg-white md:rounded md:h-full md:max-h-full">
               <h3
-                className="text-sm sm:text-lg text-gray-700 font-semibold 
-                              py-1 sm:py-7 sm:px-6"
+                className="text-sm md:text-lg text-gray-700 font-semibold 
+                              py-1 md:py-7 md:px-6"
               >
                 مشخصات محصول
               </h3>
               <div
-                className="bg-white px-3 sm:pr-6 rounded sm:ml-3 sm:mb-5 sm:h-full 
-                              sm:overflow-y-scroll scrollbar"
+                className="bg-white px-3 md:pr-6 rounded md:ml-3 md:mb-5 md:h-full 
+                              md:overflow-y-scroll scrollbar"
               >
-                <h2 className="hidden sm:block text-gray-700 font-semibold border-b border-gray-200 pb-2">
+                <h2 className="hidden md:block text-gray-700 font-semibold border-b border-gray-200 pb-2">
                   مشخصات کلی
                 </h2>
-                <div className="border-b border-slate-200 sm:border-none py-2">
-                  <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                <div className="border-b border-slate-200 md:border-none py-2">
+                  <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                     سازنده
                   </p>
-                  <span className="text-xs sm:text-sm text-gray-500">
+                  <span className="text-xs md:text-sm text-gray-500">
                     {title.split(" ")[1]}
                   </span>
                 </div>
                 <div className="py-2">
-                  <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                  <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                     وزن
                   </p>
-                  <span className="text-xs sm:text-sm text-gray-500">
+                  <span className="text-xs md:text-sm text-gray-500">
                     200 گرم
                   </span>
                 </div>
                 {/* desktop */}
-                <div className="hidden sm:block">
+                <div className="hidden md:block">
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       ابعاد
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       7.9 × 73.9 × 161.6 میلی‌متر
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       نوع دستگاه
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       موبایل
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       تاریخ معرفی دستگاه
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       2023
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       کاربری موبایل
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       گوشی 5G, گوشی میان رده, گوشی مناسب عکاسی
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       جنس بدنه
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       بدنه پشت و دور بدنه پلاستیک, پنل جلو شیشه
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       نوع پردازنده موبایل
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       64 بیت
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       پردازنده مرکزی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       8 هسته ای
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       تعداد هسته (Core)
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       8 هسته
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       تراشه اصلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       Qualcomm SM6375 Snapdragon 695 5G (6 nm)
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       سازنده تراشه
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       Snapdragon
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       فرکانس پردازنده مرکزی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       2 هسته با سرعت 2.2 گیگاهرتز (Kryo 660 Gold) و 6 هسته با
                       سرعت 1.7 گیگاهرتز (Kryo 660 Silver)
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       مدل پردازنده گرافیکی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       Adreno 619
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       حافظه داخلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       {storage} گیگابایت
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       حافظه اجرایی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       8 گیگابایت
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       پشتيباني کارت حافظه جانبي
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       ندارد
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       توضیحات کارت حافظه جانبی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       ندارد
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       قابلیت افزایش حافظه جانبی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       ندارد
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       دوربین اصلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       2 + 5 + 64 مگاپیکسل
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       رزولوشن دوربین اصلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       64 مگاپیکسل
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       دریچه دیافراگم دوربین اصلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       دوربین اول f/1.8, دوربین دوم f/2.2, دوربین سوم f/2.4
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       فیلم برداری دوربین اصلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       رزولوشن (1080 × 1920) Full HD با سرعت 30 فریم بر ثانیه
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       فلش دوربین اصلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       دارد
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       قابلیت های دوربین اصلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       دارای حسگر سنجش عمق , دارای لنز واید, رزولوشن عکس 6912 ×
                       9216 پیکسل, فیلمبرداری گذر زمان (Time Lapse), قابلیت تشخیص
                       لبخند, قابلیت زوم دیجیتال 8 برابر, قابلیت عکاسی HDR,
@@ -870,122 +875,122 @@ const ProductDetails: React.FC = () => {
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       فناوری فوکوس
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       دارد
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       بازه دوربین اصلی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       از 32.1 تا 64 مگاپیکسل
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       دوربین سلفی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       دارد
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       رزولوشن دوربين سلفي
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       16 مگاپیکسل
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       دریچه‌ دیافراگم دوربین سلفی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       دریچه دیافراگم f/2.5
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       فیلمبرداری دوربین سلفی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       کیفیت فیلمبرداری با رزولوشن (1920 × 1080) Full HD با سرعت
                       30 فریم بر ثانیه
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       فلش دوربین سلفی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       ندارد
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       قابلیت های دوربین سلفی
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       دارای لنز واید
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       رنج دوربین جلو
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       از 12 تا 16 مگاپیکسل
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       بازه ی اندازه صفحه نمایش
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       از 6.1 تا 7.9 اینچ
                     </span>
                   </div>
                   <div className="py-2">
-                    <p className="text-xs sm:text-sm text-gray-600 font-semibold sm:py-1">
+                    <p className="text-xs md:text-sm text-gray-600 font-semibold md:py-1">
                       ابعاد صفحه نمایش
                     </p>
-                    <span className="text-xs sm:text-sm text-gray-500">
+                    <span className="text-xs md:text-sm text-gray-500">
                       6.67 اینچ
                     </span>
                   </div>
                 </div>
-                <button className="text-sm text-red-600 w-full mx-auto py-3 sm:hidden">
+                <button className="text-sm text-red-600 w-full mx-auto py-3 md:hidden">
                   نمایش تمام مشخصات
                 </button>
               </div>
             </div>
           </div>
           {/* Chart */}
-          <h3 className="text-sm font-semibold py-1 px-3 sm:hidden">
+          <h3 className="text-sm font-semibold py-1 px-3 md:hidden">
             تغییرات قیمت
           </h3>
-          <div className="sm:flex flex-col bg-white mx-3 sm:mx-0 rounded h-fit order-2 sm:w-full sm:h-full">
+          <div className="md:flex flex-col bg-white mx-3 md:mx-0 md:pb-4 rounded h-fit order-5 xl:order-2 md:w-full md:h-full">
             <Line data={chartData} options={options} className="order-2"></Line>
             <h1
-              className="text-red-600 sm:text-gray-700 text-sm text-center w-full pt-10 pb-3
-                            sm:text-lg sm:font-semibold order-1 sm:text-right sm:px-6 sm:py-7"
+              className="text-red-600 md:text-gray-700 text-sm text-center w-full pt-10 md:pt-5 pb-3
+                            md:text-lg md:font-semibold order-1 md:text-right md:px-6 xl:py-7"
             >
               لیست تغییرات قیمت
             </h1>
           </div>
           {/* Product section */}
-          <div className="flex flex-col mx-3 mt-6 sm:m-0 order-5 sm:p-6 bg-white sm:w-full rounded">
+          <div className="flex flex-col mx-3 mt-6 md:m-0 xl:order-5 order-6 md:p-6 bg-white md:w-full rounded">
             {/* s01 */}
             <div
-              className="flex flex-col sm:flex-row sm:items-center sm:gap-x-2 bg-slate-100 sm:bg-white 
-                            gap-2 sm:mb-5 pb-2 sm:p-0"
+              className="flex flex-col md:flex-row md:items-center md:gap-x-2 bg-slate-100 md:bg-white 
+                            gap-2 md:mb-5 pb-2 md:p-0"
             >
-              <h2 className="text-sm sm:text-base text-gray-800 font-semibold">
+              <h2 className="text-sm md:text-base text-gray-800 font-semibold">
                 راهنمای انتخاب محصول
               </h2>
               <h3 className="text-xs text-gray-500">
@@ -993,9 +998,9 @@ const ProductDetails: React.FC = () => {
               </h3>
             </div>
             {/* s02 */}
-            <div className="flex flex-col sm:flex-row p-3 sm:p-0 gap-6">
+            <div className="flex flex-col md:flex-row p-3 md:p-0 gap-6">
               <ul id="wrapper1" className="h-28 overflow-hidden">
-                <h3 className="text-xs sm:text-sm text-green-500 font-semibold pb-1">
+                <h3 className="text-xs md:text-sm text-green-500 font-semibold pb-1">
                   نقاط قوت
                 </h3>
                 <li className="text-xs text-gray-800">
@@ -1021,8 +1026,8 @@ const ProductDetails: React.FC = () => {
                   <span className="text-xl text-green-500">. </span>طراحی جذاب
                 </li>
               </ul>
-              <ul id="wrapper2" className="pb-3 sm:p-0 h-28 overflow-hidden">
-                <h3 className="text-xs sm:text-sm text-orange-400 font-semibold pb-1">
+              <ul id="wrapper2" className="pb-3 md:p-0 h-28 overflow-hidden">
+                <h3 className="text-xs md:text-sm text-orange-400 font-semibold pb-1">
                   نقاط ضعف
                 </h3>
                 <li className="text-xs text-gray-800">
@@ -1055,7 +1060,7 @@ const ProductDetails: React.FC = () => {
             <div onClick={moreReview}>
               <p
                 id="more"
-                className="text-center text-sm text-red-600 font-semibold py-3 sm:pb-0 cursor-pointer"
+                className="text-center text-sm text-red-600 font-semibold py-3 md:pb-0 cursor-pointer"
               >
                 ادامه بررسی
               </p>
@@ -1064,38 +1069,38 @@ const ProductDetails: React.FC = () => {
         </div>
       </div>
       {/* similar products */}
-      <div className="max-w-[80rem] mx-auto">
-        <h3 className="text-sm sm:text-lg text-gray-800 font-semibold text-center pt-4 sm:py-5">
+      <div className="max-w-[80rem] xl:mx-auto md:mx-10">
+        <h3 className="text-sm md:text-lg text-gray-800 font-semibold text-center pt-4 md:py-5">
           محصولات مشابه
         </h3>
         <div
-          className="mx-3 sm:m-0 flex items-center justify-between sm:justify-normal flex-wrap gap-3 
-                        sm:gap-y-2 sm:gap-x-1.5 mt-3"
+          className="mx-3 md:m-0 flex items-center justify-between xl:justify-normal flex-wrap gap-3 
+                        md:gap-y-2 md:gap-x-1.5 mt-3"
         >
           {data.map((product) => (
             <Link to={`/${product.id}`} key={product.id}>
-              <div className="bg-white rounded px-3 w-40 sm:w-52 h-80 sm:h-[26rem]">
+              <div className="bg-white rounded px-3 w-40 md:w-52 h-80 md:h-[26rem]">
                 <img
                   src={Object.values(product.image)[0]! as string}
                   alt="کلیک کنید"
-                  className="w-36 mx-auto py-4 sm:w-full"
+                  className="w-36 mx-auto py-4 md:w-full"
                 />
                 <p
-                  className="text-sm h-14 sm:h-20 overflow-hidden text-ellipsis my-5
-                              sm:font-semibold sm:leading-7 text-gray-700 sm:mt-3 sm:mb-24"
+                  className="text-sm h-14 md:h-20 overflow-hidden text-ellipsis my-5
+                              md:font-semibold md:leading-7 text-gray-700 md:mt-3 md:mb-24"
                 >
                   {product.title}
                 </p>
-                <p className="text-sm sm:font-semibold text-gray-800">
+                <p className="text-sm md:font-semibold text-gray-800">
                   از {product.minPrice} تومان
                 </p>
-                <div className="sm:flex items-center justify-between sm:py-2">
-                  <p className="text-xs text-gray-500 mt-1 sm:m-0">
+                <div className="md:flex items-center justify-between md:py-2">
+                  <p className="text-xs text-gray-500 mt-1 md:m-0">
                     در 37 فروشگاه
                   </p>
                   <div
-                    className="flex items-center justify-evenly mt-4 sm:m-0 
-                                text-gray-400 sm:scale-75 sm:gap-5"
+                    className="flex items-center justify-evenly mt-4 md:m-0 
+                                text-gray-400 md:scale-75 md:gap-5"
                   >
                     <FavoriteBorderIcon />
                     <NotificationsNoneIcon />

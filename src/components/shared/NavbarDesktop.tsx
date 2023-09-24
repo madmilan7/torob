@@ -16,8 +16,8 @@ const NavbarDesktop = () => {
   };
 
   return (
-    <div onClick={closeMenu} className="hidden sm:block px-10 pt-5 bg-white border-b border-gray-100">
-      <div className="flex items-center justify-between">
+    <div onClick={closeMenu} className="hidden md:block px-10 pt-5 bg-white border-b border-gray-100">
+      <div className="flex items-center justify-between gap-7">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <img src={logo} className="w-12" alt="ترب" />
@@ -36,18 +36,18 @@ const NavbarDesktop = () => {
         </div>
         <button
           className="border border-gray-300 text-sm font-semibold
-                            text-gray-600 px-4 py-3 rounded h-12"
+                            text-gray-600 px-4 py-3 rounded h-12 whitespace-nowrap"
         >
           ورود / ثبت نام
         </button>
       </div>
       {/* menu */}
-      <div className="flex items-center justify-between py-5">
+      <div className="flex items-center justify-between py-5 overflow-auto no-scrollbar">
         <ul className="flex items-center gap-6">
           <div>
             <li
               onClick={openMenu}
-              className="text-sm text-gray-700 hover:text-red-600 cursor-pointer"
+              className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer"
             >
               موبایل و کالای دیجیتال
             </li>
@@ -408,37 +408,37 @@ const NavbarDesktop = () => {
               </div>
             </div>
           </div>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             لپ‌تاپ، کامپیوتر، اداری
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             هایپر مارکت
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             لوازم خانگی
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             مد و پوشاک
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             زیبایی و بهداشت
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             صوتی و تصویری
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             خودرو و سایر وسایل نقلیه
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             ورزش و سرگرمی
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             سلامت و پزشکی
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             فرهنگی هنر
           </li>
-          <li className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
+          <li className="text-sm text-gray-700 whitespace-nowrap hover:text-red-600 cursor-pointer">
             سایر دسته ها
           </li>
         </ul>

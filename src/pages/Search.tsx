@@ -18,7 +18,7 @@ const Search = () => {
   return (
     <div>
       {/* mobile version */}
-      <div className="sm:hidden">
+      <div className="md:hidden">
         <Navbar />
         <Banner />
         <AppleProducts />
