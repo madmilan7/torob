@@ -569,12 +569,12 @@ const AllProducts: React.FC = () => {
             </h1>
           </div>
           {/* Filter's button */}
-          <div className="mx-10 py-3 lg:hidden cursor-pointer">
+          <div className="mx-10 py-3 hidden md:block lg:hidden cursor-pointer">
             <i className="text-gray-700"><FilterAltOutlinedIcon /></i>
             <span className="text-sm text-gray-700">فیلتر ها</span>
           </div>
           {/* products */}
-          <div className="flex items-center justify-between md:justify-normal flex-wrap gap-2 px-3 pb-2 md:px-8">
+          <div className="flex items-center justify-between md:justify-normal lg:justify-start flex-wrap gap-2 px-3 pb-2 md:px-8">
             {state.filteredProducts.map((product: ProductsType) => (
               <Link to={`/${product.id}`} key={product.id}>
                 <div className="bg-white rounded w-40 md:w-44 h-80 md:h-[26rem]">
