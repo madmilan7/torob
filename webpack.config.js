@@ -5,9 +5,9 @@ module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "index_bundle.js",
-    publicPath: "/dist/",
+    path: path.resolve(__dirname, "build"),
+    filename: "bundle.js",
+    publicPath: "/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx", ".json", ".css", ".svg"],
@@ -44,7 +44,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html"),
+      template: path.resolve('./public/index.html'),
     }),
   ],
 };
