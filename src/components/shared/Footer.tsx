@@ -5,7 +5,7 @@ const Footer = () => {
   const location = useLocation();
 
   return (
-    <div className="flex items-center justify-evenly sticky bottom-0 bg-white h-12 md:hidden">
+    <div className="flex items-center justify-evenly fixed right-0 left-0 bottom-0 bg-white h-12 md:hidden">
       <Link to="/" className="flex flex-col items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

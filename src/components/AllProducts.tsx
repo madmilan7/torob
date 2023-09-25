@@ -52,7 +52,7 @@ const AllProducts: React.FC = () => {
   };
 
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 mb-12 md:m-0">
       {/* title */}
       <div className="flex items-center bg-white h-10 px-3 border-b border-slate-100 md:hidden">
         <ArrowForwardIcon onClick={() => navigate(-1)} />
